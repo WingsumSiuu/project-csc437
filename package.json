@@ -1,0 +1,22 @@
+{
+  "name": "project-csc437",
+  "version": "1.0.0",
+  "description": "project for csc 437",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WingsumSiuu/project-csc437.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WingsumSiuu/project-csc437/issues"
+  },
+  "homepage": "https://github.com/WingsumSiuu/project-csc437#readme",
+  "workspaces": [
+    "packages/*"
+  ]
+}
