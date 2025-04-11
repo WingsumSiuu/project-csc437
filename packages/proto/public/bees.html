@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bees</title>
+        <style>
+            .beebox {
+                width: 300px;
+                padding: 10px 20px;
+            }
+            .common {
+                background-color: lightgoldenrodyellow;
+            }
+            .legendary {
+                background-color: lightblue;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="index.html">Return to Home</a>
+        <br>
+        <br>
+        <h1>the bee swarm simulator bees list</h1>
+        <p>your little fuzzy friends who fight for you, collect pollen for you, and convert pollen to honey for you</p>
+        <p>treat them well</p>
+        <hr>
+        <br>
+        <div class="beebox common">
+            <h3>basic bee</h3>
+            <p>your first friend</p>
+            <hr>
+            <p>Rarity: Common</p>
+            <p>Token Ability: none</p>
+            <img src="https://static.miraheze.org/beeswarmwiki/7/76/Basic_Bee.png"
+                 alt="" width="150px">
+            <hr>
+            <p>Bee Stats:</p>
+            <table>
+                <tr>
+                    <td>Energy</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>Pollen Collection Rate</td>
+                    <td>10 every 4 sec</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="beebox common">
+            <h3>honey bee</h3>
+            <p>not a basic bee!</p>
+            <hr>
+            <p>Rarity: Common</p>
+            <p>Token Ability: spawns honey tokens</p>
+            <img src="data:image/png;base64,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"
+                 alt="" width="150px">
+            <hr>
+            <p>Bee Stats:</p>
+            <table>
+                <tr>
+                    <td>Energy</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>Pollen Collection Rate</td>
+                    <td>10 every 4 sec</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="beebox legendary">
+            <h3>baby bee</h3>
+            <p>a lucky charm!</p>
+            <hr>
+            <p>Rarity: Legendary</p>
+            <p>Token Ability: +50% loot luck for 30 seconds</p>
+            <img src="data:image/png;base64,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"
+                 alt="" width="150px">
+            <hr>
+            <p>Bee Stats:</p>
+            <table>
+                <tr>
+                    <td>Energy</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Attack</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Speed</td>
+                    <td>10.5</td>
+                </tr>
+                <tr>
+                    <td>Pollen Collection Rate</td>
+                    <td>10 every 5 sec</td>
+                </tr>
+            </table>
+        </div>
+    <br>
+    </body>
+
+
+</html>
