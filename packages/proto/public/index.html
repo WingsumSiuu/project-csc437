@@ -4,102 +4,148 @@
         <meta charset="utf-8">
         <title>Bee Swarm Simulator</title>
 
+        <!-- header -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+
+        <!-- body text -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed&display=swap" rel="stylesheet">
+
+        <link href="/styles/page.css" rel="stylesheet">
+        <link href="/styles/tokens.css" rel="stylesheet">
+        <link href="/styles/reset.css" rel="stylesheet">
+        <style>
+            /*.mansalva-regular {*/
+            /*    font-family: "Mansalva", sans-serif;*/
+            /*    font-weight: 400;*/
+            /*    font-style: normal;*/
+            /*    text-shadow: lightyellow 2px 2px 2px;*/
+            /*    margin: 0 0;*/
+            /*}*/
+
+            .ibm-plex-sans-condensed-regular {
+                font-family: "IBM Plex Sans Condensed", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            h3 {
+                font-family: "Mansalva", sans-serif;
+            }
+
+
+        </style>
     </head>
     <body>
-        <br>
-        <h1>Bee Swarm Simulator</h1>
-        <p>a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
-            all to collect bees!</p>
-        <p>aka a great way to waste time</p>
+        <h1 class="navbar mansalva-regular">bee swarm simulator
+            <svg class="icon">
+                <use href="icons/bee.svg#icon-bee" />
+            </svg>
+        </h1>
+            <div class="container">
+            <img src="images/bss.png" alt="Bee Swarm Simulator">
+            <p class="centered">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
+            all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>
+        </div>
         <hr>
-        <h3>Areas</h3>
-        <h4>0 Bees Required</h4>
-        <p>Fields</p>
-        <ul>
-            <li>
-                <a href="/areas/fields/dandelion.html">Dandelion Field</a>
-            </li>
-        </ul>
-        <p>Shops</p>
-        <ul>
-            <li>
-                <a href="/areas/shops/noobshop.html">Noob Shop</a>
-            </li>
-        </ul>
-        <p>NPCs</p>
-        <ul>
-            <li>Black Bear</li>
-            <li>Mother Bear</li>
-        </ul>
-        <h4>5 Bees Required</h4>
-        <p>Fields</p>
-        <ul>
-            <li>
-                <a href="/areas/fields/spider.html">Spider Field</a>
-            </li>
-            <li>
-                <a href="/areas/fields/bamboo.html">Bamboo Field</a>
-            </li>
-        </ul>
-        <hr>
-        <h3>Friendly NPCS</h3>
-        <ul>
-            <li>
-                <a href="bees.html">Bees</a>
-            </li>
-            <li>
-                <a href="/areas/npcs/questbears.html">Quest Giving Bears</a>
-            </li>
-        </ul>
-        <hr>
-        <h3>Mobs</h3>
-        <ul>
-            <li>
-                <a href="mobs/beetle.html">Rhino Beetle</a>
-            </li>
-            <li>
-                <a href="mobs/spider.html">Spider</a>
-            </li>
-        </ul>
-<!--        think i'll keep the bees list as one html page for now -->
-<!--        <ul>-->
-<!--            <li>-->
-<!--                <a href="/bees/basicbee.html">Basic Bee</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a href="/bees/honeybee.html">Honey Bee</a>-->
-<!--            </li>-->
-<!--        </ul>-->
-        <hr>
-        <h3>Player Attachments</h3>
-        <ul>
-            <li>
-                <a href="tools/collectors">Pollen Collectors</a>
-            </li>
-            <li>
-                <a href="accessories/bags.html">Bags (for Pollen)</a>
-            </li>
-            <li>
-                <a href="accessories/hats.html">Hats</a>
-            </li>
-            <li>
-                <a href="accessories/boots.html">Boots</a>
-            </li>
-            <li>
-                <a href="accessories/belts.html">Belts</a>
-            </li>
-        </ul>
-        <hr>
-        <h3>Items</h3>
-        <ul>
-            <li>
-                <a href="eggs.html">Eggs</a>
-            </li>
-            <li>
-                <a href="stickers.html">Stickers</a>
-            </li>
-        </ul>
-
+        <div class="body-content box-grid">
+            <div class="small-border-box">
+                <h3 class="header-banner">Areas</h3>
+                <h4>0 Bees Required</h4>
+                <p>Fields</p>
+                <ul>
+                    <li>
+                        <a href="/areas/fields/dandelion.html">Dandelion Field</a>
+                    </li>
+                </ul>
+                <p>Shops</p>
+                <ul>
+                    <li>
+                        <a href="/areas/shops/noobshop.html">Noob Shop</a>
+                    </li>
+                </ul>
+                <p>NPCs</p>
+                <ul>
+                    <li>Black Bear</li>
+                    <li>Mother Bear</li>
+                </ul>
+                <h4>5 Bees Required</h4>
+                <p>Fields</p>
+                <ul>
+                    <li>
+                        <a href="/areas/fields/spider.html">Spider Field</a>
+                    </li>
+                    <li>
+                        <a href="/areas/fields/bamboo.html">Bamboo Field</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="small-border-box">
+                <h3 class="header-banner">Friendly NPCS</h3>
+                <ul>
+                    <li>
+                        <a href="bees.html">Bees</a>
+                    </li>
+                    <li>
+                        <a href="/areas/npcs/questbears.html">Quest Giving Bears</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="small-border-box">
+                <h3 class="header-banner">Mobs</h3>
+                <ul>
+                    <li>
+                        <a href="mobs/beetle.html">Rhino Beetle</a>
+                    </li>
+                    <li>
+                        <a href="mobs/spider.html">Spider</a>
+                    </li>
+                </ul>
+            </div>
+    <!--        think i'll keep the bees list as one html page for now -->
+    <!--        <ul>-->
+    <!--            <li>-->
+    <!--                <a href="/bees/basicbee.html">Basic Bee</a>-->
+    <!--            </li>-->
+    <!--            <li>-->
+    <!--                <a href="/bees/honeybee.html">Honey Bee</a>-->
+    <!--            </li>-->
+    <!--        </ul>-->
+            <div class="small-border-box">
+                <h3 class="header-banner">Player Attachments</h3>
+                <ul>
+                    <li>
+                        <a href="tools/collectors">Pollen Collectors</a>
+                    </li>
+                    <li>
+                        <a href="accessories/bags.html">Bags (for Pollen)</a>
+                    </li>
+                    <li>
+                        <a href="accessories/hats.html">Hats</a>
+                    </li>
+                    <li>
+                        <a href="accessories/boots.html">Boots</a>
+                    </li>
+                    <li>
+                        <a href="accessories/belts.html">Belts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="small-border-box">
+                <h3 class="header-banner">Items</h3>
+                <ul>
+                    <li>
+                        <a href="eggs.html">Eggs</a>
+                    </li>
+                    <li>
+                        <a href="stickers.html">Stickers</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </body>
 
 
