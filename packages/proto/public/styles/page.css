@@ -5,12 +5,40 @@
     padding: .25em .25em 0 .25em;
 }
 
-.header-banner {
+/* index.html */
+.index-topic-header {
+    background-color: var(--color-secondary);
+    text-align: center;
+    font-size: var(--font-size-larger);
+    font-family: "Mansalva", sans-serif;
+}
+
+.index-topic-title {
     background-color: var(--color-tertiary);
-    width: 10em;
     text-align: center;
     font-size: var(--font-size-medium);
 }
+
+.index-topic-grid {
+    --page-grids: 3;
+    display: grid;
+    align-content: end;
+    grid-template-columns: repeat(
+        var(--page-grids), 1fr
+    );
+
+    gap:
+        var(--box-gap);
+
+    grid-column:
+        span min(
+        5,
+        var(--page-grids)
+        ) / -1;
+
+}
+
+
 
 /* at the top of each individual concept page (ie a specific field/mob page) */
 .page-title {
@@ -18,8 +46,8 @@
 
 }
 
-/* the images with text on top */
-.container {
+/* image with text on top */
+.img-under-text {
     position: relative;
     text-align: center;
     color: white;
@@ -27,7 +55,8 @@
         opacity: .6;
     }
     > p {
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0.35);
+        padding: var(--box-gap);
     }
 }
 

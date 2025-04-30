@@ -20,6 +20,7 @@
     --font-size-small: 1em;
     --font-size-medium: 1.25em;
     --font-size-large: 1.5em;
+    --font-size-larger: 2em;
 
-    --box-gap: 0.3em;
+    --box-gap: 2em;
 }
