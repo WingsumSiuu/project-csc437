@@ -31,3 +31,14 @@
 
     --icon-size: 3.5em;
 }
+
+body.dark-mode {
+    --color-primary: #879dc1;
+    --color-secondary: rgb(193, 149, 149);
+    --color-tertiary: rgba(252, 227, 221, 0.5);
+    --color-quaternary: #f1bcbc;
+    --color-quinary: rgba(221, 252, 228, 0.5);
+
+    --color-text: rgb(255, 246, 227);
+    --color-text-shadow: rgb(166, 85, 85);
+}

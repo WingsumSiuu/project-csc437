@@ -31,6 +31,7 @@
     font-size: var(--font-size-medium);
     font-family: "Mansalva", sans-serif;
     padding: 0.15em 0.5em 0.15em 0.5em;
+
 }
 
 .index-grid {
@@ -118,16 +119,6 @@ one or more accent colors, to use for links and/or headings
 .small-border-box {
 }
 
-.box {
-    /* generic boxes for individual items, tools, etc */
-    /* colors are in separate classes (for now) */
-    width: var(--box-width);
-    padding: var(--box-padding-width) var(--box-padding-height);
-    border: 1px solid black;
-    /*display: flex;*/
-    flex-wrap: wrap;
-}
-
 .box-grid {
     display: flex;
     flex-wrap: wrap;
@@ -139,7 +130,7 @@ one or more accent colors, to use for links and/or headings
     }
 }
 
-.field-grid {   /* for field, shop (needs a new name) */
+.two-one-grid {   /* for field, shop (needs a new name) */
     display: grid;
     grid-template-columns: 2fr 1fr;
     width: 100%;
@@ -230,6 +221,31 @@ one or more accent colors, to use for links and/or headings
         width: 90%;
     }
 }
+
+.bear-grid {   /* for image, bear quests */
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    width: 100%;
+    gap: var(--box-gap);
+
+    @media screen and (max-width: 50rem) {
+        grid-template-columns: 1fr;
+    }
+
+    >img {
+        width: 100%;
+    }
+
+    > .info {
+    }
+
+    & > * .questbox {
+        border: 2px solid black;
+        margin-bottom: 1em;
+    }
+
+}
+
 
 .noobshop {
     background-color: rgba(221, 252, 228, 0.5);
