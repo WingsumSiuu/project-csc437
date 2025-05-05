@@ -23,4 +23,11 @@
     --font-size-larger: 2em;
 
     --box-gap: 2em;
+
+    --flower-box-padding: 0.25em;
+
+    --mob-img: 150px;
+    --mob-box: 250px;
+
+    --icon-size: 3.5em;
 }

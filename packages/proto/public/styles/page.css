@@ -5,6 +5,10 @@
     padding: .25em .25em 0 .25em;
 }
 
+.main-image {
+    opacity: 0.65;
+}
+
 /* index.html */
 .index-topic-header {
     background-color: var(--color-secondary);
@@ -17,6 +21,15 @@
     background-color: var(--color-tertiary);
     text-align: center;
     font-size: var(--font-size-medium);
+    font-family: "Mansalva", sans-serif;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.index-topic-subtitle {
+    background-color: var(--color-quaternary);
+    text-align: center;
+    font-size: var(--font-size-medium);
+    font-family: "Mansalva", sans-serif;
 }
 
 .index-topic-grid {
@@ -37,8 +50,6 @@
         ) / -1;
 
 }
-
-
 
 /* at the top of each individual concept page (ie a specific field/mob page) */
 .page-title {
@@ -127,10 +138,77 @@ one or more accent colors, to use for links and/or headings
     }
 }
 
+.field-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    width: 100%;
+    gap: var(--box-gap);
+
+    @media screen and (max-width: 50rem) {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* background colors + more maybe for the boxes */
-.mob {
-    background-color: #f1bcbc;
+.mob-box {
+    border: 2px solid black;
     padding: 10px 20px;
+
+    >.mob-img {
+        width: 90%;
+    }
+
+    >.mob-table {   /* the stat table */
+        width: 100%;
+        border-collapse: collapse;
+
+        >th, td {
+            border: 1px solid black;
+            padding: 10px 1px 10px 10px;
+            text-align: left;
+        }
+    }
+}
+
+.flower-box {
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+
+    >.flower-icon {
+        width: var(--icon-size);
+        height: var(--icon-size);
+    }
+}
+
+.shop-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid black;
+    padding: 20px 25px;
+    margin-top: -1.35em;
+
+    > img {
+        width: 150px;
+        margin: 0 1.5em 0 1.5em;
+    }
+
+    .info {
+        flex-grow: 1;
+        margin: 0 1.5em 0 0;
+    }
+}
+
+.shop-tool-box {
+    border: 2px solid black;
+    padding: 0 20px;
+    margin-bottom: 1em;
+
+    > img {
+        width: 150px;
+    }
+
 }
 
 .noobshop {
