@@ -10,14 +10,14 @@
 }
 
 /* index.html */
-.index-topic-header {
+.header-text {
     background-color: var(--color-secondary);
     text-align: center;
     font-size: var(--font-size-larger);
     font-family: "Mansalva", sans-serif;
 }
 
-.index-topic-title {
+.title-text {
     background-color: var(--color-tertiary);
     text-align: center;
     font-size: var(--font-size-medium);
@@ -25,14 +25,15 @@
     padding: 0.5em 0.5em 0.5em 0.5em;
 }
 
-.index-topic-subtitle {
+.subtitle-text {
     background-color: var(--color-quaternary);
-    text-align: center;
+    text-align: right;
     font-size: var(--font-size-medium);
     font-family: "Mansalva", sans-serif;
+    padding: 0.15em 0.5em 0.15em 0.5em;
 }
 
-.index-topic-grid {
+.index-grid {
     --page-grids: 3;
     display: grid;
     align-content: end;
@@ -138,7 +139,7 @@ one or more accent colors, to use for links and/or headings
     }
 }
 
-.field-grid {
+.field-grid {   /* for field, shop (needs a new name) */
     display: grid;
     grid-template-columns: 2fr 1fr;
     width: 100%;
@@ -149,8 +150,7 @@ one or more accent colors, to use for links and/or headings
     }
 }
 
-/* background colors + more maybe for the boxes */
-.mob-box {
+.mob-box {     /* for boxes displaying mobs on each field */
     border: 2px solid black;
     padding: 10px 20px;
 
@@ -158,19 +158,21 @@ one or more accent colors, to use for links and/or headings
         width: 90%;
     }
 
-    >.mob-table {   /* the stat table */
-        width: 100%;
-        border-collapse: collapse;
 
-        >th, td {
-            border: 1px solid black;
-            padding: 10px 1px 10px 10px;
-            text-align: left;
-        }
+}
+
+.table {   /* the stat table */
+    width: 100%;
+    border-collapse: collapse;
+
+    >th, td {
+        border: 1px solid black;
+        padding: 10px 1px 10px 10px;
+        text-align: left;
     }
 }
 
-.flower-box {
+.flower-box {   /* for types of flowers on fields */
     display: flex;
     flex-wrap: wrap;
     border: 2px solid black;
@@ -181,7 +183,7 @@ one or more accent colors, to use for links and/or headings
     }
 }
 
-.shop-box {
+.shop-box {     /* for player accessories */
     display: flex;
     align-items: center;
     gap: 20px;
@@ -194,13 +196,13 @@ one or more accent colors, to use for links and/or headings
         margin: 0 1.5em 0 1.5em;
     }
 
-    .info {
+    .info {     /* stats, cost, etc */
         flex-grow: 1;
         margin: 0 1.5em 0 0;
     }
 }
 
-.shop-tool-box {
+.shop-tool-box {    /* for player tools */
     border: 2px solid black;
     padding: 0 20px;
     margin-bottom: 1em;
@@ -209,6 +211,24 @@ one or more accent colors, to use for links and/or headings
         width: 150px;
     }
 
+}
+
+.bee-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 0.5em;
+}
+
+.bee-box {
+    border: 2px solid black;
+    flex-basis: 250px;
+    flex-grow: 1;
+    padding: 0 1em 1em 1em;
+
+    > img {
+        width: 90%;
+    }
 }
 
 .noobshop {
