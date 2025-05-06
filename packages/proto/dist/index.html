@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bee Swarm Simulator</title>
+
+        <!-- header -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+
+        <!-- body text -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed&display=swap" rel="stylesheet">
+
+        <link href="/styles/page.css" rel="stylesheet">
+        <link href="/styles/tokens.css" rel="stylesheet">
+        <link href="/styles/reset.css" rel="stylesheet">
+
+
+      <script type="module" crossorigin src="/assets/index-DVE9PwLL.js"></script>
+    </head>
+    <body>
+        <navbar></navbar>
+        <header>
+            <h1 class="navbar mansalva-regular">bee swarm simulator
+                <svg class="icon">
+                    <use href="icons/bee.svg#icon-bee" />
+                </svg>
+            </h1>
+            <label>
+                <input type="checkbox" id="darkModeToggle" autocomplete="off" />
+                Dark mode
+            </label>
+
+            <script>
+                document.getElementById("darkModeToggle").addEventListener("change", function() {
+                    document.body.classList.toggle("dark-mode");
+                });
+            </script>
+
+        </header>
+        <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
+<!--        <p>a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,-->
+<!--        all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>-->
+        <hr>
+        <h1 class="header-text">The Hub</h1>
+        <div class="body-content index-grid">
+            <div class="small-border-box">
+                <h3 class="title-text">0 Bee Zone</h3>
+                <p>Fields</p>
+                <ul>
+                    <li>
+                        <a href="/areas/fields/dandelion.html">Dandelion Field</a>
+                    </li>
+                </ul>
+                <p>Shops</p>
+                <ul>
+                    <li>
+                        <a href="/areas/shops/noobshop.html">Noob Shop</a>
+                    </li>
+                </ul>
+                <p>NPCs</p>
+                <ul>
+                    <li>
+                        <a href="/areas/npcs/blackbear.html">Black bear</a>
+                    </li>
+                    <li>
+                        <a href="/areas/npcs/motherbear.html">Mother bear</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="small-border-box">
+                <h3 class="title-text">5 Bee Zone</h3>
+                    <p>Fields</p>
+                    <ul>
+                        <li>
+                            <a href="/areas/fields/spider.html">Spider Field</a>
+                        </li>
+                        <li>
+                            <a href="/areas/fields/bamboo.html">Bamboo Field</a>
+                        </li>
+                    </ul>
+                <p>No shop in zone</p>
+                <p>NPCs</p>
+                <li>
+                    <a href="/areas/npcs/pandabear.html">Panda bear</a>
+                </li>
+            </div>
+            <div class="small-border-box">
+                <h3 class="title-text">Miscellaneous</h3>
+                <ul>
+                    <li>
+                        <a href="public/eggs.html">Eggs</a>
+                    </li>
+                    <li>
+                        <a href="public/bees.html">Bees</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <br>
+    </body>
+
+
+</html>

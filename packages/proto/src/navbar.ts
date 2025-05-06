@@ -1,5 +1,5 @@
 import {
-    define, Dropdown, Events
+    define, Dropdown
 } from "@calpoly/mustang";
 import { css, html, LitElement } from "lit";
 import reset from "./styles/reset.css.ts";

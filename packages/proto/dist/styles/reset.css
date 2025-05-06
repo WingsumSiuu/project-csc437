@@ -1,0 +1,27 @@
+/*@import url(https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap);*/
+
+/*.m-plus-rounded-1c-regular {*/
+/*    font-family: "M PLUS Rounded 1c", sans-serif;*/
+/*    font-weight: 400;*/
+/*    font-style: normal;*/
+/*}*/
+
+img {
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--color-page-bg);
+}
+
+/* stuff under header, etc */
+.body-content {
+    margin: 0 3em 0 3em;
+
+}
+
+.body-content-field {
+    margin: 0 1em 0 1em;
+}
+
