@@ -7,6 +7,8 @@
     --color-common: lightgoldenrodyellow;
     --color-legendary: lightblue;
 
+    --color-page-bg: white;
+
     --color-primary: #fdf2b0;
     --color-secondary: #f3d17c;
     --color-tertiary: #d9e0a3;
@@ -30,15 +32,20 @@
     --mob-box: 250px;
 
     --icon-size: 3.5em;
+
+    --box-border-width: 2px;
+    --box-border-color: black;
 }
 
 body.dark-mode {
-    --color-primary: #879dc1;
-    --color-secondary: rgb(193, 149, 149);
-    --color-tertiary: rgba(252, 227, 221, 0.5);
-    --color-quaternary: #f1bcbc;
+    --color-page-bg: rgb(48, 48, 48);
+
+    --color-primary: #a88d8d;
+    --color-secondary: #6a7e79;
+    --color-tertiary: rgb(119, 80, 80);
+    --color-quaternary: #798a72;
     --color-quinary: rgba(221, 252, 228, 0.5);
 
-    --color-text: rgb(255, 246, 227);
+    --color-text: rgb(255, 255, 255);
     --color-text-shadow: rgb(166, 85, 85);
 }

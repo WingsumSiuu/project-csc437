@@ -1,0 +1,17 @@
+{
+  "eggs": [
+    {
+      "eggname": "basic egg",
+      "cost": "comes free with the game",
+      "imgsrc": "/images/eggs/basicegg.jpeg",
+      "rarity": [87, 10, 2.5, 0.5]
+    },
+    {
+      "eggname": "silver egg",
+      "cost": "50 Tickets in the Ticket Tend",
+      "imgsrc": "/images/eggs/silveregg.jpg",
+      "rarity": [64.9, 30, 5, 0.1]
+    }
+  ]
+}
+
