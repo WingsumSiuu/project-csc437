@@ -6,6 +6,7 @@ import page from "./styles/page.css.ts";
 import { Egg } from "./models/schema.ts";
 
 export class EggContainerElement extends LitElement {
+
     @property()
     src?: string;       // src should be eggdata.json
 
@@ -34,7 +35,7 @@ export class EggContainerElement extends LitElement {
                                 <th>Chance</th>
                             </tr>
                             <tr>
-                                <td>Basic Bee</td>
+                                <td>Common</td>
                                 <td>${egg.rarity[0]}%</td>
                             </tr>
                             <tr>

@@ -10,16 +10,29 @@ const styles = css`
 
     /* banners and things */
     .navbar {
+        display: flex;
+        justify-content: space-between;
+        
         background-color: var(--color-primary);
         width: 100%;
-        padding: .25em .25em 0 .25em;
+        
+        margin: -1em 0;
+        
+        > .logo-flex {
+            padding-left: 1em;
+        }
+        
+        > .dark-flex {
+            padding-right: 1em;
+        }
+        
     }
 
     .main-image {
         opacity: 0.65;
     }
 
-    h3, h2, h1, p, td, a, li{
+    h3, h2, h1, p, td, th, a, li {
         color: var(--color-text);
         text-shadow: var(--color-text-shadow);
         font-family: "Mansalva", sans-serif;

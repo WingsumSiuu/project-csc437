@@ -51,6 +51,8 @@ const styles = css`
 
         --color-text: rgb(255, 255, 255);
         --color-text-shadow: rgb(166, 85, 85);
+
+        --box-border-color: white;
     }
 `;
 

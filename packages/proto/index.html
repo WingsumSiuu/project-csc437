@@ -20,38 +20,24 @@
 
         <script type="module">
             import { define } from "@calpoly/mustang";
-            import { TestingElement } from "/src/testing.ts";
+            // import { TestingElement } from "/src/testing.ts";
             import { NavbarElement } from "/src/navbar.ts";
+            import { EggContainerElement } from "/src/egg-container.ts";
+            import { BeeContainerElement } from "/src/bee-container.ts";
 
             define({
-                "testing-element": TestingElement,
-                "navbar": NavbarElement,
+                // "testing-element": TestingElement,
+                "navbar-element": NavbarElement,
+                "egg-container": EggContainerElement,
+                "bee-container": BeeContainerElement,
             });
 
-            //NavbarElement.initializeOnce();
+            NavbarElement.initializeOnce();
         </script>
 
     </head>
     <body>
-        <navbar></navbar>
-        <header>
-            <h1 class="navbar mansalva-regular">bee swarm simulator
-                <svg class="icon">
-                    <use href="icons/bee.svg#icon-bee" />
-                </svg>
-            </h1>
-            <label>
-                <input type="checkbox" id="darkModeToggle" autocomplete="off" />
-                Dark mode
-            </label>
-
-            <script>
-                document.getElementById("darkModeToggle").addEventListener("change", function() {
-                    document.body.classList.toggle("dark-mode");
-                });
-            </script>
-
-        </header>
+        <navbar-element></navbar-element>
         <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
 <!--        <p>a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,-->
 <!--        all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>-->
@@ -103,16 +89,27 @@
                 <h3 class="title-text">Miscellaneous</h3>
                 <ul>
                     <li>
-                        <a href="public/eggs.html">Eggs</a>
+                        <a href="/eggs.html">Eggs</a>
                     </li>
                     <li>
-                        <a href="public/bees.html">Bees</a>
+                        <a href="/bees.html">Bees</a>
                     </li>
                 </ul>
             </div>
         </div>
         <br>
+        <hr>
+        <div class="body-content">
+            <h3 class="title-text">Eggs</h3>
+            <egg-container src="/data/eggdata.json"></egg-container>
+            <br>
+            <hr>
+            <h3 class="title-text">Bees</h3>
+            <bee-container src="/data/beedata.json"></bee-container>
+        </div>
         <br>
+        <br>
+
     </body>
 
 

@@ -1,5 +1,5 @@
 import {
-    define, Dropdown
+    define, Dropdown, Events
 } from "@calpoly/mustang";
 import { css, html, LitElement } from "lit";
 import reset from "./styles/reset.css.ts";
@@ -12,7 +12,36 @@ export class NavbarElement extends LitElement {
     });
 
     override render() {
-        return html` <p>hello</p>
+        return html`
+            <header>
+                <div class="navbar">
+                    <div class="logo-flex">
+                        <h1>bee swarm simulator
+                            <svg class="icon">
+                                <use href="icons/bee.svg#icon-bee" />
+                            </svg>
+                        </h1>
+                    </div>
+                        
+                    <div class="dark-flex">
+                        <label class="dark-mode-switch"
+                               @change=${(event: Event) => Events.relay(
+                                       event, "dark-mode", {
+                                           checked: (event.target as HTMLInputElement)?.checked
+                                       })
+                               }
+                        >
+                            <h1>
+                        <input type="checkbox" />
+                            <svg class="icon">
+                                <use href="icons/bee.svg#icon-dark-mode" />
+                            </svg>
+                            </h1>
+                        </label>
+                    </div>
+                </div>
+            </header>
+            
             `;
     }
     // <header>
@@ -41,14 +70,14 @@ export class NavbarElement extends LitElement {
         css``
     ];
 
-    // static initializeOnce() {
-    //     function toggleDarkMode(page: HTMLElement | null, checked: any) {
-    //         page?.classList.toggle("dark-mode", checked);
-    //     }
-    //
-    //     document.body.addEventListener("dark-mode", (event: Event) =>
-    //         toggleDarkMode(event.currentTarget as HTMLElement,
-    //             (event as CustomEvent).detail.checked)
-    //     );
-    //}
+    static initializeOnce() {
+        function toggleDarkMode(page: HTMLElement | null, checked: any) {
+            page?.classList.toggle("dark-mode", checked);
+        }
+
+        document.body.addEventListener("dark-mode", (event: Event) =>
+            toggleDarkMode(event.currentTarget as HTMLElement,
+                (event as CustomEvent).detail.checked)
+        );
+    }
 }

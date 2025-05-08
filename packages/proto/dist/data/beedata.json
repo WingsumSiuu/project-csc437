@@ -1,0 +1,21 @@
+{
+  "bees": [
+    {
+      "beename": "basic bee",
+      "rarity": "common",
+      "desc": "your first friend",
+      "ability": "none",
+      "imgsrc": "/images/bees/basicbee.webp",
+      "stats": ["20", "1", "14", "10 every 4 sec"]
+    },
+    {
+      "beename": "honey bee",
+      "rarity": "common",
+      "desc": "not a basic bee!",
+      "ability": "spawns honey tokens",
+      "imgsrc": "/images/bees/honeybee.png",
+      "stats": ["20", "1", "14", "10 every 4 sec"]
+    }
+  ]
+}
+
