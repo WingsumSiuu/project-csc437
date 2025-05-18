@@ -13,3 +13,13 @@ export interface Bee {
     "imgsrc": string;
     "stats": string[];
 }
+
+export interface Mob {
+    "mobname": string;
+    "rarity": string;
+    "desc": string;
+    "ability": string;
+    "imgsrc": string;
+    "stats": string[];
+}
+

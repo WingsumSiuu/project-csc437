@@ -20,7 +20,6 @@
 
         <script type="module">
             import { define } from "@calpoly/mustang";
-            // import { TestingElement } from "/src/testing.ts";
             import { NavbarElement } from "/src/navbar.ts";
             import { EggContainerElement } from "/src/egg-container.ts";
             import { BeeContainerElement } from "/src/bee-container.ts";
@@ -38,9 +37,11 @@
     </head>
     <body>
         <navbar-element></navbar-element>
+        <p>click name to return to index</p>
         <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
-<!--        <p>a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,-->
-<!--        all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>-->
+        <hr>
+        <p class="body-content-intro-text">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
+        all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>
         <hr>
         <h1 class="header-text">The Hub</h1>
         <div class="body-content index-grid">
@@ -89,23 +90,13 @@
                 <h3 class="title-text">Miscellaneous</h3>
                 <ul>
                     <li>
-                        <a href="/eggs.html">Eggs</a>
+                        <a href="eggs.html">Eggs</a>
                     </li>
                     <li>
-                        <a href="/bees.html">Bees</a>
+                        <a href="bees.html">Bees</a>
                     </li>
                 </ul>
             </div>
-        </div>
-        <br>
-        <hr>
-        <div class="body-content">
-            <h3 class="title-text">Eggs</h3>
-            <egg-container src="/data/eggdata.json"></egg-container>
-            <br>
-            <hr>
-            <h3 class="title-text">Bees</h3>
-            <bee-container src="/data/beedata.json"></bee-container>
         </div>
         <br>
         <br>

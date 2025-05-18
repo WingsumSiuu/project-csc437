@@ -16,9 +16,9 @@ export class NavbarElement extends LitElement {
             <header>
                 <div class="navbar">
                     <div class="logo-flex">
-                        <h1>bee swarm simulator
+                        <h1  @click=${() => (window.location.href = "/")}>bee swarm simulator
                             <svg class="icon">
-                                <use href="icons/bee.svg#icon-bee" />
+                                <use href="/icons/bee.svg#icon-bee" />
                             </svg>
                         </h1>
                     </div>
@@ -34,7 +34,7 @@ export class NavbarElement extends LitElement {
                             <h1>
                         <input type="checkbox" />
                             <svg class="icon">
-                                <use href="icons/bee.svg#icon-dark-mode" />
+                                <use href="/icons/bee.svg#icon-dark-mode" />
                             </svg>
                             </h1>
                         </label>

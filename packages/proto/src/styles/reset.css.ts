@@ -17,7 +17,7 @@ const styles = css`
     }
 
     .body-content-field {
-        margin: 0 1em 0 1em;
+        margin: 0 0.5em 0 0.5em;
     }
 `;
 

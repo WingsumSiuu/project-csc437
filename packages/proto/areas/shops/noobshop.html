@@ -11,13 +11,24 @@
         <link href="/styles/tokens.css" rel="stylesheet">
         <link href="/styles/reset.css" rel="stylesheet">
 
+        <script type="module">
+            import { define } from "@calpoly/mustang";
+            import { NavbarElement } from "../../src/navbar";
+
+            define({
+                "navbar-element": NavbarElement,
+            });
+
+            NavbarElement.initializeOnce();
+        </script>
     </head>
     <body>
-        <a href="/">Return to Home</a>
+    <navbar-element></navbar-element>
         <br>
-        <br>
-        <h1 class="page-title">welcome to the noob shop</h1>
-        <p>the home of your first bee swarm simulator purchase!</p>
+        <div class="body-content-intro-text">
+            <h1 class="page-title">welcome to the noob shop</h1>
+            <p>the home of your first bee swarm simulator purchase!</p>
+        </div>
         <hr>
         <div class="body-content-field">
             <div class="two-one-grid">
@@ -25,7 +36,7 @@
                     <h3 class="title-text">Player Gear</h3>
                     <h3 class="subtitle-text">Head</h3>
                     <div class="shop-box">
-                        <img src="../../images/tools/helmet.jpeg" alt="helmet">
+                        <img src="../../public/images/tools/helmet.jpeg" alt="helmet">
                         <div class="info">
                             <h3>helmet</h3>
                             <p>upgraded defense!</p>
@@ -36,7 +47,7 @@
                     </div>
                     <h3 class="subtitle-text">Belt</h3>
                     <div class="shop-box">
-                        <img src="../../images/tools/belt-pocket.webp" alt="belt pocket">
+                        <img src="../../public/images/tools/belt-pocket.webp" alt="belt pocket">
                         <div class="info">
                             <h3>belt pocket</h3>
                             <p>another pocket for pollen + a lucky charm</p>
@@ -47,7 +58,7 @@
                     </div>
                     <h3 class="subtitle-text">Pollen Holder</h3>
                     <div class="shop-box">
-                        <img src="../../images/tools/pouch.webp" alt="pouch">
+                        <img src="../../public/images/tools/pouch.webp" alt="pouch">
                         <div class="info">
                             <h3>pouch</h3>
                             <p>the starter gear</p>
@@ -58,7 +69,7 @@
                     </div>
                     <h3 class="subtitle-text">Boots</h3>
                     <div class="shop-box">
-                        <img src="../../images/tools/basicboots.webp" alt="basic boots">
+                        <img src="../../public/images/tools/basicboots.webp" alt="basic boots">
                         <div class="info">
                             <h3>basic boots</h3>
                             <p>rain boots</p>
@@ -74,7 +85,7 @@
                         <h3>scooper</h3>
                         <p>your first tool</p>
                         <hr>
-                        <img src="../../images/tools/scooper.webp" alt="scooper">
+                        <img src="../../public/images/tools/scooper.webp" alt="scooper">
                         <hr>
                         <p>cost: 0 honey</p>
                         <p>collection Range: 2 tiles</p>
@@ -84,7 +95,7 @@
                         <h3>vacuum</h3>
                         <p>brr</p>
                         <hr>
-                        <img src="../../images/tools/vacuum.webp" alt="vacuum">
+                        <img src="../../public/images/tools/vacuum.webp" alt="vacuum">
                         <hr>
                         <p>cost: 14000 honey</p>
                         <p>collection Range: 13 tiles</p>

@@ -28,6 +28,11 @@ h3, h2, h1, p, td, a, li{
 /*    font-size: var(--font-size-small);*/
 /*}*/
 
+.body-content-intro-text {
+    text-align: center;
+    padding-bottom: 1em;
+}
+
 /* index.html */
 .header-text {
     background-color: var(--color-secondary);
@@ -76,6 +81,7 @@ h3, h2, h1, p, td, a, li{
 /* at the top of each individual concept page (ie a specific field/mob page) */
 .page-title {
     font-family: "Mansalva", sans-serif;
+    text-shadow:  2px 2px var(--color-text-shadow);
 }
 
 /* image with text on top */

@@ -12,8 +12,16 @@
         <link href="/styles/tokens.css" rel="stylesheet">
         <link href="/styles/reset.css" rel="stylesheet">
 
-      <script type="module" crossorigin src="/assets/blackbear-DjekLVpj.js"></script>
-      <link rel="modulepreload" crossorigin href="/assets/navbar-CtcXgyiu.js">
+        <script type="module">
+            import { define } from "@calpoly/mustang";
+            import { NavbarElement } from "../../src/navbar";
+
+            define({
+                "navbar-element": NavbarElement,
+            });
+
+            NavbarElement.initializeOnce();
+        </script>
     </head>
 
     <body>
@@ -27,7 +35,7 @@
         <br>
         <div class="body-content">
             <div class="bear-grid">
-                <img src="/assets/blackbear-CHqbsLsj.webp" alt="blackbear">
+                <img src="../../public/images/bears/blackbear.webp" alt="blackbear">
                 <div class="info">
                     <h3 class="title-text">Quests</h3>
                     <div class="questbox">

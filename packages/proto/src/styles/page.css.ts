@@ -15,8 +15,8 @@ const styles = css`
         
         background-color: var(--color-primary);
         width: 100%;
-        
-        margin: -1em 0;
+        height: 5em;
+        margin-top: -0.5em;
         
         > .logo-flex {
             padding-left: 1em;
@@ -210,7 +210,7 @@ const styles = css`
     .bee-container {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--box-gap);
+        gap: 1em;
     }
 
     .bee-box {

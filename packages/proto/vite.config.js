@@ -9,8 +9,14 @@ export default defineConfig({
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'index.html'),
-                egg: resolve(__dirname, '/public/eggs.html'),
-                bee: resolve(__dirname, '/public/bees.html'),
+                egg: resolve(__dirname, 'eggs.html'),
+                bee: resolve(__dirname, 'bees.html'),
+                dandelion: resolve(__dirname, '/areas/fields/dandelion.html'),
+                noobshop: resolve(__dirname, '/areas/shops/noobshop.html'),
+                blackbear: resolve(__dirname, '/areas/npcs/blackbear.html'),
+                motherbear: resolve(__dirname, '/areas/npcs/motherbear.html'),
+                spider: resolve(__dirname, '/areas/fields/spider.html'),
+                bamboo: resolve(__dirname, '/areas/fields/bamboo.html'),
             },
         },
     },

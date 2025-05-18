@@ -15,7 +15,40 @@
       "ability": "spawns honey tokens",
       "imgsrc": "/images/bees/honeybee.png",
       "stats": ["20", "1", "14", "10 every 4 sec"]
+    },
+    {
+      "beename": "rad bee",
+      "rarity": "rare",
+      "desc": "rad or red",
+      "ability": "1.2x red pollen for 15 sec",
+      "imgsrc": "/images/bees/radbee.png",
+      "stats": ["20", "1", "14", "13 every 4 sec"]
+    },
+    {
+      "beename": "stubborn bee",
+      "rarity": "rare",
+      "desc": "just like me",
+      "ability": "random patch increases pollen up to 50%",
+      "imgsrc": "/images/bees/stubbornbee.png",
+      "stats": ["20", "3", "11.9", "10 every 6 sec"]
+    },
+    {
+      "beename": "diamond bee",
+      "rarity": "legendary",
+      "desc": "pompous",
+      "ability": "20% bonus honey when converting at hive",
+      "imgsrc": "/images/bees/diamondbee.jpeg",
+      "stats": ["20", "1", "14", "10 every 4 sec"]
+    },
+    {
+      "beename": "baby bee",
+      "rarity": "legendary",
+      "desc": "a full team of baby bees lets you play a different game",
+      "ability": "+50% loot luck for 30 secs",
+      "imgsrc": "/images/bees/babybee.webp",
+      "stats": ["15", "0", "10.5", "10 every 5 sec"]
     }
   ]
 }
+
 

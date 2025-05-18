@@ -11,37 +11,50 @@
         <link href="/styles/page.css" rel="stylesheet">
         <link href="/styles/tokens.css" rel="stylesheet">
         <link href="/styles/reset.css" rel="stylesheet">
+        <script type="module">
+            import { define } from "@calpoly/mustang";
+            import { NavbarElement } from "../../src/navbar";
 
-      <script type="module" crossorigin src="/assets/blackbear-DjekLVpj.js"></script>
-      <link rel="modulepreload" crossorigin href="/assets/navbar-CtcXgyiu.js">
+            define({
+                "navbar-element": NavbarElement,
+            });
+
+            NavbarElement.initializeOnce();
+        </script>
     </head>
-
     <body>
         <navbar-element></navbar-element>
         <br>
         <div class="body-content-intro-text">
-            <h1 class="page-title">black bear</h1>
+            <h1 class="page-title">panda bear</h1>
             <p>to do things in exchange for...eggs...</p>
         </div>
         <hr>
         <br>
         <div class="body-content">
             <div class="bear-grid">
-                <img src="/assets/blackbear-CHqbsLsj.webp" alt="blackbear">
+                <img src="../../public/images/bears/pandabear.webp" alt="pandabear">
                 <div class="info">
                     <h3 class="title-text">Quests</h3>
                     <div class="questbox">
-                        <p class="subtitle-text">Silver Egg Quest</p>
+                        <p class="subtitle-text no-margin-top">Treat Tutorial</p>
                         <ul>
-                            <li>a whole laundry list of tasks</li>
-                            <li>Reward: 1 silver egg</li>
+                            <li>Feed a bee a treat</li>
+                            <li>Reward: 250 honey, 1 ticket</li>
                         </ul>
                     </div>
                     <div class="questbox">
-                        <p class="subtitle-text">Gold Egg Quest</p>
+                        <p class="subtitle-text">Bonding with Bees</p>
                         <ul>
-                            <li>another list</li>
-                            <li>Reward: 1 gold egg</li>
+                            <li>Feed bees 5 treat</li>
+                            <li>Reward: 1000 honey, 1 ticket</li>
+                        </ul>
+                    </div>
+                    <div class="questbox">
+                        <p class="subtitle-text">Royal Jelly Jamboree</p>
+                        <ul>
+                            <li>Feed bees 50 treat</li>
+                            <li>Reward: 50000 honey, 4 tickets</li>
                         </ul>
                     </div>
                 </div>
@@ -50,6 +63,5 @@
         <br>
         <br>
     </body>
-
 
 </html>
