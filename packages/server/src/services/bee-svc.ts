@@ -1,0 +1,33 @@
+import { Schema, model } from "mongoose";
+import { Bee } from "../models/bee";
+
+const BeeSchema = new Schema<Bee>(
+    {
+        beename: String,
+        rarity: String,
+        desc: String,
+        ability: String,
+        imgsrc: String,
+        stats: [String]
+    },
+    { collection: "bee" }
+);
+
+const BeeModel = model<Bee>(
+    "Bee",
+    BeeSchema
+);
+
+function index(): Promise<Bee[]> {
+        return BeeModel.find();
+}
+
+function get(beename: String): Promise<Bee> {
+        return BeeModel.find({ beename })
+            .then((list) => list[0])
+            .catch((err) => {
+                    throw `${beename} Not Found`;
+            });
+}
+
+export default { index, get };
