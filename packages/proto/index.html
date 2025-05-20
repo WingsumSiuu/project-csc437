@@ -19,7 +19,7 @@
         <link href="/styles/reset.css" rel="stylesheet">
 
         <script type="module">
-            import { define } from "@calpoly/mustang";
+            import { define, Auth } from "@calpoly/mustang";
             import { NavbarElement } from "/src/navbar.ts";
             import { EggContainerElement } from "/src/egg-container.ts";
             import { BeeContainerElement } from "/src/bee-container.ts";
@@ -36,41 +36,43 @@
 
     </head>
     <body>
-        <navbar-element></navbar-element>
-        <p>click name to return to index</p>
-        <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
-        <hr>
-        <p class="body-content-intro-text">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
-        all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>
-        <hr>
-        <h1 class="header-text">The Hub</h1>
-        <div class="body-content index-grid">
-            <div class="small-border-box">
-                <h3 class="title-text">0 Bee Zone</h3>
-                <p>Fields</p>
-                <ul>
-                    <li>
-                        <a href="/areas/fields/dandelion.html">Dandelion Field</a>
-                    </li>
-                </ul>
-                <p>Shops</p>
-                <ul>
-                    <li>
-                        <a href="/areas/shops/noobshop.html">Noob Shop</a>
-                    </li>
-                </ul>
-                <p>NPCs</p>
-                <ul>
-                    <li>
-                        <a href="/areas/npcs/blackbear.html">Black bear</a>
-                    </li>
-                    <li>
-                        <a href="/areas/npcs/motherbear.html">Mother bear</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="small-border-box">
-                <h3 class="title-text">5 Bee Zone</h3>
+        <mu-auth provides="egg:auth">
+            <navbar-element></navbar-element>
+
+            <p>click name to return to index</p>
+            <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
+            <hr>
+            <p class="body-content-intro-text">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
+            all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>
+            <hr>
+            <h1 class="header-text">The Hub</h1>
+            <div class="body-content index-grid">
+                <div class="small-border-box">
+                    <h3 class="title-text">0 Bee Zone</h3>
+                    <p>Fields</p>
+                    <ul>
+                        <li>
+                            <a href="/areas/fields/dandelion.html">Dandelion Field</a>
+                        </li>
+                    </ul>
+                    <p>Shops</p>
+                    <ul>
+                        <li>
+                            <a href="/areas/shops/noobshop.html">Noob Shop</a>
+                        </li>
+                    </ul>
+                    <p>NPCs</p>
+                    <ul>
+                        <li>
+                            <a href="/areas/npcs/blackbear.html">Black bear</a>
+                        </li>
+                        <li>
+                            <a href="/areas/npcs/motherbear.html">Mother bear</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="small-border-box">
+                    <h3 class="title-text">5 Bee Zone</h3>
                     <p>Fields</p>
                     <ul>
                         <li>
@@ -80,27 +82,29 @@
                             <a href="/areas/fields/bamboo.html">Bamboo Field</a>
                         </li>
                     </ul>
-                <p>No shop in zone</p>
-                <p>NPCs</p>
-                <li>
-                    <a href="/areas/npcs/pandabear.html">Panda bear</a>
-                </li>
+                    <p>No shop in zone</p>
+                    <p>NPCs</p>
+                    <ul>
+                        <li>
+                            <a href="/areas/npcs/pandabear.html">Panda bear</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="small-border-box">
+                    <h3 class="title-text">Miscellaneous</h3>
+                    <ul>
+                        <li>
+                            <a href="eggs.html">Eggs</a>
+                        </li>
+                        <li>
+                            <a href="bees.html">Bees</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="small-border-box">
-                <h3 class="title-text">Miscellaneous</h3>
-                <ul>
-                    <li>
-                        <a href="eggs.html">Eggs</a>
-                    </li>
-                    <li>
-                        <a href="bees.html">Bees</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <br>
-        <br>
-
+            <br>
+            <br>
+        </mu-auth>
     </body>
 
 

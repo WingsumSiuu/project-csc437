@@ -1,15 +1,22 @@
 import {
-    define, Dropdown, Events
+    define, Dropdown, Events, Auth, Observer
 } from "@calpoly/mustang";
 import { css, html, LitElement } from "lit";
 import reset from "./styles/reset.css.ts";
 import page from "./styles/page.css.ts";
+import { state } from "lit/decorators.js";
 import tokens from "./styles/tokens.css.ts";
 
 export class NavbarElement extends LitElement {
     static uses = define({
         "mu-dropdown": Dropdown.Element
     });
+
+    @state()
+    loggedIn = false;
+
+    @state()
+    userid?: string;
 
     override render() {
         return html`
@@ -38,30 +45,21 @@ export class NavbarElement extends LitElement {
                             </svg>
                             </h1>
                         </label>
+
+                        <a slot="actuator">
+                            Hello, ${this.userid || "beekeeper"}
+                        </a>
+
+                        ${this.loggedIn ?
+                                this.renderSignOutButton() :
+                                this.renderSignInButton()
+                        }
                     </div>
                 </div>
             </header>
             
             `;
     }
-    // <header>
-    //                 <h1 class="navbar mansalva-regular">bee swarm simulator
-    //                     <svg class="icon">
-    //                         <use href="icons/bee.svg#icon-bee" />
-    //                     </svg>
-    //                 </h1>
-    //
-    //             </header>
-    // <label class="dark-mode-switch"
-    //                        @change=${(event: Event) => Events.relay(
-    //                                event, "dark-mode", {
-    //                                    checked: (event.target as HTMLInputElement)?.checked
-    //                                })
-    //                        }
-    //                 >
-    //                     <input type="checkbox" />
-    //                     Dark Mode
-    //                 </label>
 
     static styles = [
         reset.styles,
@@ -80,4 +78,43 @@ export class NavbarElement extends LitElement {
                 (event as CustomEvent).detail.checked)
         );
     }
+
+    _authObserver = new Observer<Auth.Model>(this, "beeswarm:auth");
+
+    connectedCallback() {
+        super.connectedCallback();
+
+        this._authObserver.observe((auth: Auth.Model) => {
+            const { user } = auth;
+
+            if (user && user.authenticated ) {
+                this.loggedIn = true;
+                this.userid = user.username;
+            } else {
+                this.loggedIn = false;
+                this.userid = undefined;
+            }
+        });
+    }
+
+    renderSignOutButton() {
+        return html`
+            <button
+              @click=${(e: UIEvent) => {
+                    Events.relay(e, "auth:message", ["auth/signout"])
+                }}
+            >
+              Sign Out
+            </button>
+        `;
+    }
+
+    renderSignInButton() {
+        return html`
+            <a href="/login.html">
+              Sign In…
+            </a>
+          `;
+    }
+
 }

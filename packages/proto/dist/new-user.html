@@ -9,21 +9,36 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-    <script type="module">
-        import { define, Auth } from "@calpoly/mustang";
-        import { LoginFormElement } from "/src/auth/login-form";
+    <style>
+        .page {
+            height: 100vh;
+            grid-template-rows: 1fr fit-content(1fr) 1fr;
+        }
 
-        define({
-            "mu-auth": Auth.Provider,
-            "login-form": LoginFormElement
-        });
-    </script>
+        main.card {
+            align-self: center;
+            grid-column: 3 / span 4;
+        }
+
+        h2 {
+            grid-column: start / end;
+            align-self: end;
+        }
+
+        p {
+            grid-column: 2 / -2;
+            text-align: center;
+        }
+    </style>
+  <script type="module" crossorigin src="/assets/newuser-BunrwJt5.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/state-B6XRztWW.js">
+  <link rel="modulepreload" crossorigin href="/assets/login-form-Bue3g2jp.js">
 </head>
 <body class="page">
 <mu-auth>
     <h3 class="title-text">User Login</h3>
     <main class="card">
-        <login-form api="/auth/login">
+        <login-form api="/auth/register">
             <label>
                 <span>Username:</span>
                 <input name="username" autocomplete="off" />
@@ -32,11 +47,12 @@
                 <span>Password:</span>
                 <input type="password" name="password" />
             </label>
+            <span slot="button-label">Create Account</span>
         </login-form>
     </main>
     <p
-    >Or did you want to
-        <a href="new-user.html">Sign up as a new user</a>?
+    >Already have an account?
+        <a href="login.html">Sign in instead</a>
     </p>
 </mu-auth>
 </body>

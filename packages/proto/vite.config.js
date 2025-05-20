@@ -17,6 +17,8 @@ export default defineConfig({
                 motherbear: resolve(__dirname, '/areas/npcs/motherbear.html'),
                 spider: resolve(__dirname, '/areas/fields/spider.html'),
                 bamboo: resolve(__dirname, '/areas/fields/bamboo.html'),
+                login: resolve(__dirname, 'login.html'),
+                newuser: resolve(__dirname, 'new-user.html'),
             },
         },
     },

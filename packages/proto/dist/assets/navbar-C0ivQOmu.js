@@ -1,6 +1,4 @@
-import { css } from "lit";
-
-const styles = css`
+import{a as l,i as p,O as h,d as x,b as f,e as g,x as s,r as u,c as m}from"./state-B6XRztWW.js";const v=l`
     .mansalva-regular {
         font-family: "Mansalva", sans-serif;
         font-weight: 400;
@@ -267,6 +265,100 @@ const styles = css`
         vertical-align: text-top;
         fill: currentColor;
     }
-`;
+`,w={styles:v},y=l`
+    :root {
+        --color-text: rgb(51 51 51);
+        --color-text-shadow: rgb(225, 197, 119);
 
-export default { styles };
+        --color-link: rgb(135, 157, 193);
+
+        --color-common: lightgoldenrodyellow;
+        --color-legendary: lightblue;
+
+        --color-page-bg: white;
+
+        --color-primary: #fdf2b0;
+        --color-secondary: #f3d17c;
+        --color-tertiary: #d9e0a3;
+        --color-quaternary: #c4cea1;
+        --color-quinary: #cf9963;
+
+        --box-width: 250px;
+        --box-padding-width: 10px;
+        --box-padding-height: 20px;
+
+        --font-size-small: 1em;
+        --font-size-medium: 1.25em;
+        --font-size-large: 1.5em;
+        --font-size-larger: 2em;
+
+        --box-gap: 2em;
+
+        --flower-box-padding: 0.25em;
+
+        --mob-img: 150px;
+        --mob-box: 250px;
+
+        --icon-size: 3.5em;
+
+        --box-border-width: 2px;
+        --box-border-color: black;
+    }
+
+    body.dark-mode {
+        --color-page-bg: rgb(48, 48, 48);
+
+        --color-primary: #a88d8d;
+        --color-secondary: #6a7e79;
+        --color-tertiary: rgb(119, 80, 80);
+        --color-quaternary: #798a72;
+        --color-quinary: rgba(221, 252, 228, 0.5);
+
+        --color-text: rgb(255, 255, 255);
+        --color-text-shadow: rgb(166, 85, 85);
+
+        --box-border-color: white;
+    }
+`,k={styles:y};var z=Object.defineProperty,b=(n,o,e,d)=>{for(var r=void 0,i=n.length-1,c;i>=0;i--)(c=n[i])&&(r=c(o,e,r)||r);return r&&z(o,e,r),r};const t=class t extends p{constructor(){super(...arguments),this.loggedIn=!1,this._authObserver=new h(this,"beeswarm:auth")}render(){return s`
+            <header>
+                <div class="navbar">
+                    <div class="logo-flex">
+                        <h1  @click=${()=>window.location.href="/"}>bee swarm simulator
+                            <svg class="icon">
+                                <use href="/icons/bee.svg#icon-bee" />
+                            </svg>
+                        </h1>
+                    </div>
+                        
+                    <div class="dark-flex">
+                        <label class="dark-mode-switch"
+                               @change=${o=>{var e;return g.relay(o,"dark-mode",{checked:(e=o.target)==null?void 0:e.checked})}}
+                        >
+                            <h1>
+                        <input type="checkbox" />
+                            <svg class="icon">
+                                <use href="/icons/bee.svg#icon-dark-mode" />
+                            </svg>
+                            </h1>
+                        </label>
+
+                        <a slot="actuator">
+                            Hello, ${this.userid||"beekeeper"}
+                        </a>
+
+                        ${this.loggedIn?this.renderSignOutButton():this.renderSignInButton()}
+                    </div>
+                </div>
+            </header>
+            
+            `}static initializeOnce(){function o(e,d){e==null||e.classList.toggle("dark-mode",d)}document.body.addEventListener("dark-mode",e=>o(e.currentTarget,e.detail.checked))}connectedCallback(){super.connectedCallback(),this._authObserver.observe(o=>{const{user:e}=o;e&&e.authenticated?(this.loggedIn=!0,this.userid=e.username):(this.loggedIn=!1,this.userid=void 0)})}renderSignOutButton(){return s`
+            <button
+              @click=${o=>{g.relay(o,"auth:message",["auth/signout"])}}
+            >
+              Sign Out
+            </button>
+        `}renderSignInButton(){return s`
+            <a href="/login.html">
+              Sign In…
+            </a>
+          `}};t.uses=x({"mu-dropdown":f.Element}),t.styles=[u.styles,w.styles,k.styles,l``];let a=t;b([m()],a.prototype,"loggedIn");b([m()],a.prototype,"userid");export{a as N,w as p,k as t};
