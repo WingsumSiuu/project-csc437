@@ -1,0 +1,1 @@
+import{d as n,N as e}from"./navbar-De3POkg_.js";import{E as a}from"./egg-container-BmpEsl2N.js";import{B as i}from"./bee-container-C9E9IfHK.js";n({"navbar-element":e,"egg-container":a,"bee-container":i});e.initializeOnce();

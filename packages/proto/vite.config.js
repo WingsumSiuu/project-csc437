@@ -15,6 +15,7 @@ export default defineConfig({
                 noobshop: resolve(__dirname, '/areas/shops/noobshop.html'),
                 blackbear: resolve(__dirname, '/areas/npcs/blackbear.html'),
                 motherbear: resolve(__dirname, '/areas/npcs/motherbear.html'),
+                pandabear: resolve(__dirname, '/areas/npcs/pandabear.html'),
                 spider: resolve(__dirname, '/areas/fields/spider.html'),
                 bamboo: resolve(__dirname, '/areas/fields/bamboo.html'),
                 login: resolve(__dirname, 'login.html'),
