@@ -29,18 +29,13 @@ const EggSchema = new import_mongoose.Schema(
     imgsrc: String,
     rarity: [Number]
   },
-  { collection: "egg" }
+  { collection: "Egg" }
 );
 const EggModel = (0, import_mongoose.model)(
   "Egg",
   EggSchema
 );
 function index() {
-  return EggModel.find();
+  return EggModel.find().sort({ eggname: 1 });
 }
-function get(eggname) {
-  return EggModel.find({ eggname }).then((list) => list[0]).catch((err) => {
-    throw `${eggname} Not Found`;
-  });
-}
-var egg_svc_default = { index, get };
+var egg_svc_default = { index };

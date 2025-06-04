@@ -29,26 +29,32 @@
             grid-column: 2 / -2;
             text-align: center;
         }
+
+        label, input {
+            font-family: "Mansalva", sans-serif;
+        }
     </style>
-  <script type="module" crossorigin src="/assets/newuser-Dy5UMs5N.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/navbar-De3POkg_.js">
-  <link rel="modulepreload" crossorigin href="/assets/login-form-D0r7XNsv.js">
+  <script type="module" crossorigin src="/assets/newuser-BFfckWBo.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/navbar-rDali1mL.js">
+  <link rel="modulepreload" crossorigin href="/assets/login-form-C9-AzAxg.js">
 </head>
 <body class="page">
 <mu-auth>
     <navbar-element></navbar-element>
     <br><br>
-    <h3 class="title-text">User Login</h3>
+    <h3 class="title-text">Sign Up</h3>
     <main class="card">
         <login-form api="/auth/register">
             <label>
                 <span>Username:</span>
                 <input name="username" autocomplete="off" />
             </label>
+            <br>
             <label>
                 <span>Password:</span>
                 <input type="password" name="password" />
             </label>
+            <br>
             <span slot="button-label">Create Account</span>
         </login-form>
     </main>

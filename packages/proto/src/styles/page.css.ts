@@ -38,11 +38,10 @@ const styles = css`
         font-family: "Mansalva", sans-serif;
     }
 
-    /*!* text *!*/
-    /*p {*/
-    /*    font-family: "Times New Roman", sans-serif;*/
-    /*    font-size: var(--font-size-small);*/
-    /*}*/
+    .body-content-intro-text {
+        text-align: center;
+        padding-bottom: 1em;
+    }
 
     /* index.html */
     .header-text {
@@ -92,6 +91,7 @@ const styles = css`
     /* at the top of each individual concept page (ie a specific field/mob page) */
     .page-title {
         font-family: "Mansalva", sans-serif;
+        text-shadow:  2px 2px var(--color-text-shadow);
     }
 
     /* image with text on top */
@@ -136,7 +136,7 @@ const styles = css`
 
     .two-one-grid {   /* for field, shop (needs a new name) */
         display: grid;
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 3fr 2fr;
         width: 100%;
         gap: var(--box-gap);
 
@@ -150,7 +150,7 @@ const styles = css`
         padding: 10px 20px;
 
         >.mob-img {
-            width: 90%;
+            width: 60%;
         }
     }
 

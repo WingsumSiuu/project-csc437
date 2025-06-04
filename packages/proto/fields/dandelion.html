@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Dandelion Field</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+
+        <link href="/styles/page.css" rel="stylesheet">
+        <link href="/styles/tokens.css" rel="stylesheet">
+        <link href="/styles/reset.css" rel="stylesheet">
+
+        <script type="module">
+            import { define } from "@calpoly/mustang";
+            import { NavbarElement } from "../src/navbar";
+            import { FieldContainerElement } from "../src/field-container";
+
+            define({
+                "navbar-element": NavbarElement,
+                "field-element": FieldContainerElement,
+            });
+
+            NavbarElement.initializeOnce();
+        </script>
+    </head>
+
+    <body>
+        <navbar-element></navbar-element>
+        <br>
+        <field-element src="/api/fields/dandelion"></field-element>
+        <br>
+        <br>
+        <br>
+    </body>
+
+
+</html>

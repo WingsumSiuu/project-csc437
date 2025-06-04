@@ -8,7 +8,7 @@ const EggSchema = new Schema<Egg>(
         imgsrc: String,
         rarity: [Number]
     },
-    { collection: "egg" }
+    { collection: "Egg" }
 );
 
 const EggModel = model<Egg>(
@@ -17,15 +17,19 @@ const EggModel = model<Egg>(
 );
 
 function index(): Promise<Egg[]> {
-    return EggModel.find();
+    return EggModel.find().sort({ eggname: 1 });
 }
 
-function get(eggname: String): Promise<Egg> {
-    return EggModel.find({ eggname })
-        .then((list) => list[0])
-        .catch((err) => {
-            throw `${eggname} Not Found`;
-        });
-}
+// oops index does the exact thing
+// function get(): Promise<Egg[]> {
+//     return EggModel.find().sort({ eggname: 1 })
+//         .then((eggs: Egg[]) => {
+//             //console.log(eggs);
+//             return eggs;
+//         })
+//         .catch((err) => {
+//             throw `eggs not found`;
+//         });
+// }
 
-export default { index, get };
+export default { index };

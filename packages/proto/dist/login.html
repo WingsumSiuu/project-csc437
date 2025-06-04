@@ -9,13 +9,40 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
     <link rel="stylesheet" href="/styles/page.css" />
-  <script type="module" crossorigin src="/assets/login-Dy5UMs5N.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/navbar-De3POkg_.js">
-  <link rel="modulepreload" crossorigin href="/assets/login-form-D0r7XNsv.js">
+    <style>
+        .page {
+            height: 100vh;
+            grid-template-rows: 1fr fit-content(1fr) 1fr;
+        }
+
+        main.card {
+            align-self: center;
+            grid-column: 3 / span 4;
+        }
+
+        h3 {
+            grid-column: start / end;
+            align-self: end;
+        }
+
+        p {
+            grid-column: 2 / -2;
+            text-align: center;
+        }
+
+        label, input {
+            font-family: "Mansalva", sans-serif;
+        }
+
+    </style>
+  <script type="module" crossorigin src="/assets/login-BFfckWBo.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/navbar-rDali1mL.js">
+  <link rel="modulepreload" crossorigin href="/assets/login-form-C9-AzAxg.js">
 </head>
 <body class="page">
 <mu-auth>
     <navbar-element></navbar-element>
+</mu-auth>
     <br><br>
     <h3 class="title-text">User Login</h3>
     <main class="card">
@@ -24,16 +51,17 @@
                 <span>Username:</span>
                 <input name="username" autocomplete="off" />
             </label>
+            <br>
             <label>
                 <span>Password:</span>
                 <input type="password" name="password" />
             </label>
+            <br><br>
         </login-form>
     </main>
     <p
     >Or did you want to
         <a href="new-user.html">Sign up as a new user</a>?
     </p>
-</mu-auth>
 </body>
 </html>

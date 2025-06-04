@@ -10,7 +10,7 @@ const BeeSchema = new Schema<Bee>(
         imgsrc: String,
         stats: [String]
     },
-    { collection: "bee" }
+    { collection: "Bee" }
 );
 
 const BeeModel = model<Bee>(
@@ -22,12 +22,4 @@ function index(): Promise<Bee[]> {
         return BeeModel.find();
 }
 
-function get(beename: String): Promise<Bee> {
-        return BeeModel.find({ beename })
-            .then((list) => list[0])
-            .catch((err) => {
-                    throw `${beename} Not Found`;
-            });
-}
-
-export default { index, get };
+export default { index };

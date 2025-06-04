@@ -68,9 +68,8 @@ export class EggContainerElement extends LitElement {
         fetch(src)
             .then(res => res.json())
             .then((json: { eggs: Egg[] }) => {  // casting to Egg datatype
-                if (json?.eggs) {
-                    this.eggs = json.eggs;
-                }
+                console.log(json.eggs);
+                this.eggs = json.eggs;
             })
             .catch(err => console.error("error getting egg data:", err));
     }

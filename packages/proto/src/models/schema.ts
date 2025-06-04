@@ -14,12 +14,18 @@ export interface Bee {
     "stats": string[];
 }
 
+export interface Field {
+    fieldname: string;
+    desc: string;
+    image: string;
+    mobs?: Mob[];
+    flowers: string[];
+}
+
 export interface Mob {
-    "mobname": string;
-    "rarity": string;
-    "desc": string;
-    "ability": string;
-    "imgsrc": string;
-    "stats": string[];
+    mobname: string;
+    level: number;
+    image: string;
+    stats: Record<string, number>;
 }
 

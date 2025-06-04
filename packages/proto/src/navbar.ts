@@ -79,7 +79,7 @@ export class NavbarElement extends LitElement {
         );
     }
 
-    _authObserver = new Observer<Auth.Model>(this, "beeswarm:auth");
+    private _authObserver = new Observer<Auth.Model>(this, "beeswarm:auth");
 
     connectedCallback() {
         super.connectedCallback();
@@ -111,7 +111,7 @@ export class NavbarElement extends LitElement {
 
     renderSignInButton() {
         return html`
-            <a href="/login.html">
+            <a href="../login.html">
               Sign In…
             </a>
           `;

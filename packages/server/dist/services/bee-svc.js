@@ -31,7 +31,7 @@ const BeeSchema = new import_mongoose.Schema(
     imgsrc: String,
     stats: [String]
   },
-  { collection: "bee" }
+  { collection: "Bee" }
 );
 const BeeModel = (0, import_mongoose.model)(
   "Bee",
@@ -40,9 +40,4 @@ const BeeModel = (0, import_mongoose.model)(
 function index() {
   return BeeModel.find();
 }
-function get(beename) {
-  return BeeModel.find({ beename }).then((list) => list[0]).catch((err) => {
-    throw `${beename} Not Found`;
-  });
-}
-var bee_svc_default = { index, get };
+var bee_svc_default = { index };

@@ -40,23 +40,29 @@
             grid-column: 2 / -2;
             text-align: center;
         }
+
+        label, input {
+            font-family: "Mansalva", sans-serif;
+        }
     </style>
 </head>
 <body class="page">
 <mu-auth>
     <navbar-element></navbar-element>
     <br><br>
-    <h3 class="title-text">User Login</h3>
+    <h3 class="title-text">Sign Up</h3>
     <main class="card">
         <login-form api="/auth/register">
             <label>
                 <span>Username:</span>
                 <input name="username" autocomplete="off" />
             </label>
+            <br>
             <label>
                 <span>Password:</span>
                 <input type="password" name="password" />
             </label>
+            <br><br>
             <span slot="button-label">Create Account</span>
         </login-form>
     </main>
