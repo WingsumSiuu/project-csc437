@@ -18,5 +18,8 @@
   "homepage": "https://github.com/WingsumSiuu/project-csc437#readme",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
 }

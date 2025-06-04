@@ -2,9 +2,9 @@ import {
     define, Dropdown, Events, Auth, Observer
 } from "@calpoly/mustang";
 import { css, html, LitElement } from "lit";
+import { state } from "lit/decorators.js";
 import reset from "./styles/reset.css.ts";
 import page from "./styles/page.css.ts";
-import { state } from "lit/decorators.js";
 import tokens from "./styles/tokens.css.ts";
 
 export class NavbarElement extends LitElement {
@@ -29,31 +29,33 @@ export class NavbarElement extends LitElement {
                             </svg>
                         </h1>
                     </div>
-                        
-                    <div class="dark-flex">
-                        <label class="dark-mode-switch"
-                               @change=${(event: Event) => Events.relay(
-                                       event, "dark-mode", {
-                                           checked: (event.target as HTMLInputElement)?.checked
-                                       })
-                               }
-                        >
-                            <h1>
-                        <input type="checkbox" />
-                            <svg class="icon">
-                                <use href="/icons/bee.svg#icon-dark-mode" />
-                            </svg>
-                            </h1>
-                        </label>
 
+                    <div class="dark-flex">
+                    <mu-dropdown>
                         <a slot="actuator">
                             Hello, ${this.userid || "beekeeper"}
                         </a>
-
-                        ${this.loggedIn ?
-                                this.renderSignOutButton() :
-                                this.renderSignInButton()
-                        }
+                        <menu>
+                            <li>
+                                <label class="dark-mode-switch"
+                                       @change=${(event: Event) => Events.relay(
+                                           event, "dark-mode", {
+                                               checked: (event.target as HTMLInputElement)?.checked
+                                           })
+                                       }
+                                >
+                                <input type="checkbox" />
+                                Dark Mode
+                                </label>
+                            </li>
+                            <li>
+                                ${this.loggedIn ?
+                                    this.renderSignOutButton() :
+                                    this.renderSignInButton()
+                                }
+                            </li>
+                        </menu>
+                    </mu-dropdown>
                     </div>
                 </div>
             </header>
@@ -79,11 +81,10 @@ export class NavbarElement extends LitElement {
         );
     }
 
-    private _authObserver = new Observer<Auth.Model>(this, "beeswarm:auth");
+    _authObserver = new Observer<Auth.Model>(this, "beeswarm:auth");
 
     connectedCallback() {
         super.connectedCallback();
-
         this._authObserver.observe((auth: Auth.Model) => {
             const { user } = auth;
 
@@ -96,6 +97,7 @@ export class NavbarElement extends LitElement {
             }
         });
     }
+
 
     renderSignOutButton() {
         return html`

@@ -3,14 +3,12 @@ import express, { Request, Response } from "express";
 import auth, { authenticateUser } from "./routes/auth";
 import { connect } from "./services/mongo";
 import { getFile, saveFile } from "./services/filesystem";  // images
-//import Eggs from "./services/egg-svc";
 import eggs from "./routes/eggs";
-//import Fields from "./services/field-svc";
 import fields from "./routes/fields";
-//import Bees from "./services/bee-svc";
 import bees from "./routes/bees";
 import users from "./routes/users";
-
+import fs from "node:fs/promises";
+import path from "path";
 
 // express
 const app = express();
@@ -51,26 +49,3 @@ app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
 
-// app.get("/eggs", (req: Request, res: Response) => {
-//     const { eggname } = req.params;
-//
-//     Egg.get(eggname).then((data) => {
-//         if (data) res
-//             .set("Content-Type", "application/json")
-//             .send(JSON.stringify(data));
-//         else res
-//             .status(404).send();
-//     });
-// });
-
-// app.get("/api/fields/:name", (req: Request, res: Response) => {
-//     const { name } = req.params;
-//
-//     Field.get(name).then((data) => {
-//         if (data) res
-//             .set("Content-Type", "application/json")
-//             .send(JSON.stringify(data));
-//         else res
-//             .status(404).send();
-//     });
-// });

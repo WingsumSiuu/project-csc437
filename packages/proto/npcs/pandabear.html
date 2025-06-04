@@ -12,18 +12,21 @@
         <link href="/styles/tokens.css" rel="stylesheet">
         <link href="/styles/reset.css" rel="stylesheet">
         <script type="module">
-            import { define } from "@calpoly/mustang";
+            import { define, Auth } from "@calpoly/mustang";
             import { NavbarElement } from "../src/navbar";
 
             define({
                 "navbar-element": NavbarElement,
+                "mu-auth": Auth.Provider,
             });
 
             NavbarElement.initializeOnce();
         </script>
     </head>
     <body>
-        <navbar-element></navbar-element>
+        <mu-auth provides="beeswarm:auth">
+            <navbar-element></navbar-element>
+        </mu-auth>
         <br>
         <div class="body-content-intro-text">
             <h1 class="page-title">panda bear</h1>

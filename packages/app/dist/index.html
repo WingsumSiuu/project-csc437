@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bee Swarm Simulator</title>
+
+        <!-- header -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+
+        <!-- body text -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed&display=swap" rel="stylesheet">
+
+<!--        <link href="/packages/app/src/styles/page.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="/styles/tokens.css" />
+<!--        <link href="/packages/app/src/styles/reset.css" rel="stylesheet">-->
+
+
+      <script type="module" crossorigin src="/assets/index-BmZibgQI.js"></script>
+    </head>
+    <body>
+        <mu-history provides="beeswarm:history">
+            <mu-auth provides="beeswarm:auth" redirect="/login.html">
+                <article class="page">
+                    <navbar-element></navbar-element>
+                    <mu-switch></mu-switch>
+                </article>
+            </mu-auth>
+        </mu-history>
+    </body>
+
+
+</html>

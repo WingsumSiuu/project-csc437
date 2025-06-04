@@ -19,20 +19,17 @@
         <link href="/styles/reset.css" rel="stylesheet">
 
 
-      <script type="module" crossorigin src="/assets/main-DFogO0JH.js"></script>
-      <link rel="modulepreload" crossorigin href="/assets/navbar-rDali1mL.js">
-      <link rel="modulepreload" crossorigin href="/assets/egg-container-BkdtSSR9.js">
-      <link rel="modulepreload" crossorigin href="/assets/bee-container-BDBjNvAz.js">
+      <script type="module" crossorigin src="/assets/main-C0At2NbY.js"></script>
+      <link rel="modulepreload" crossorigin href="/assets/navbar-BLgWEL6a.js">
+      <link rel="modulepreload" crossorigin href="/assets/egg-container-Binre1Jr.js">
+      <link rel="modulepreload" crossorigin href="/assets/bee-container-BEGNteoy.js">
     </head>
     <body>
-
-        <navbar-element></navbar-element>
-
+        <mu-auth provides="beeswarm:auth">
+            <navbar-element></navbar-element>
+        </mu-auth>
         <p>click name to return to index</p>
 
-        <mu-auth provides="egg:auth">
-            <p>hello</p>
-        </mu-auth>
         <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
         <hr>
         <p class="body-content-intro-text">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
@@ -98,6 +95,7 @@
         </div>
         <br>
         <br>
+
     </body>
 
 

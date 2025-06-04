@@ -12,13 +12,14 @@
         <link href="/styles/reset.css" rel="stylesheet">
 
         <script type="module">
-            import { define } from "@calpoly/mustang";
+            import { define, Auth } from "@calpoly/mustang";
             import { BeeContainerElement } from "./src/bee-container";
             import { NavbarElement } from "./src/navbar";
 
             define({
                 "bee-container": BeeContainerElement,
                 "navbar-element": NavbarElement,
+                "mu-auth": Auth.Provider,
             });
 
             NavbarElement.initializeOnce();
@@ -26,7 +27,9 @@
 
     </head>
     <body>
-        <navbar-element></navbar-element>
+        <mu-auth provides="beeswarm:auth">
+            <navbar-element></navbar-element>
+        </mu-auth>
         <br>
         <div class="body-content-intro-text">
             <h1 class="page-title">the bee swarm simulator bees list</h1>

@@ -37,14 +37,11 @@
 
     </head>
     <body>
-
-        <navbar-element></navbar-element>
-
+        <mu-auth provides="beeswarm:auth">
+            <navbar-element></navbar-element>
+        </mu-auth>
         <p>click name to return to index</p>
 
-        <mu-auth provides="egg:auth">
-            <p>hello</p>
-        </mu-auth>
         <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
         <hr>
         <p class="body-content-intro-text">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
@@ -110,6 +107,7 @@
         </div>
         <br>
         <br>
+
     </body>
 
 

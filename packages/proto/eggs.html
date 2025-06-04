@@ -20,13 +20,14 @@
     </script>
 
     <script type="module">
-        import { define } from "@calpoly/mustang";
+        import { define, Auth } from "@calpoly/mustang";
         import { EggContainerElement } from "./src/egg-container";
         import { NavbarElement } from "./src/navbar";
 
         define({
             "egg-container": EggContainerElement,
             "navbar-element": NavbarElement,
+            "mu-auth": Auth.Provider,
         });
 
         NavbarElement.initializeOnce();
@@ -34,7 +35,9 @@
 
 </head>
 <body>
-    <navbar-element></navbar-element>
+    <mu-auth provides="beeswarm:auth">
+        <navbar-element></navbar-element>
+    </mu-auth>
     <br>
     <div class="body-content-intro-text">
     <h1 class="page-title">the bee swarm simulator egg list</h1>
