@@ -35,6 +35,10 @@
 
     --box-border-width: 2px;
     --box-border-color: black;
+
+    --color-flower-blue: rgb(210, 232, 236);
+    --color-flower-red: rgb(234, 206, 206);
+    --color-flower-white: white;
 }
 
 body.dark-mode {
@@ -50,4 +54,8 @@ body.dark-mode {
     --color-text-shadow: rgb(166, 85, 85);
 
     --box-border-color: white;
+
+    --color-flower-blue: rgb(53, 101, 106);
+    --color-flower-red: rgb(131, 71, 71);
+    --color-flower-white: rgb(48, 48, 48);
 }

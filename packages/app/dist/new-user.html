@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/packages/app/src/styles/reset.css" />
+    <link rel="stylesheet" href="/packages/app/src/styles/tokens.css" />
+    <link rel="stylesheet" href="/packages/app/src/styles/page.css" />
+    <style>
+        h2, p {
+            grid-column: 2 / -2;
+            text-align: center;
+        }
+
+        h2, p, label, input {
+            font-family: "Mansalva", sans-serif;
+        }
+
+    </style>
+  <script type="module" crossorigin src="/assets/newuser-B3cQ7hKe.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lit-element-DyX19HMz.js">
+</head>
+<body>
+    <mu-auth>
+        <h2>welcome, new beekeeper</h2>
+        <signup-form>
+            <label>
+                <span>Username:</span>
+                <input name="username" autocomplete="off" />
+            </label>
+            <label>
+                <span>Password:</span>
+                <input type="password" name="password" />
+            </label>
+        </signup-form>
+        <p>
+            Already have an account and want to
+            <a href="./login.html">Log In</a>
+            instead?
+        </p>
+    </mu-auth>
+</body>
+</html>
