@@ -422,6 +422,7 @@ Expecting `+Pt.join(", ")+", got '"+(this.terminals_[w]||w)+"'":Jt="Parse error 
                         </table>
                     </div>
                 </div>
+                <br>
             `)}
         `}hydrate(t){fetch(t).then(e=>e.json()).then(e=>{console.log(e.eggs),this.eggs=e.eggs}).catch(e=>console.error("error getting egg data:",e))}};Ee.styles=[U.styles,R.styles,S`
             .shop-box {    
@@ -457,13 +458,12 @@ Expecting `+Pt.join(", ")+", got '"+(this.terminals_[w]||w)+"'":Jt="Parse error 
             <br>
             <br>
             <div class="body-content-intro-text">
-                <h1 class="page-title">the Bee Swarm Simulator Egg List</h1>
-                <p>In Bee Swarm, eggs hatch bees.</p>
-                <p>Eggs are usually purchasable, though rarer eggs tend to be quite difficult to consistently acquire.</p>
+                <h1 class="page-title">the bee swarm simulator egg list</h1>
+                <p>in bee swarm sim, eggs hatch bees.</p>
+                <p>eggs are usually purchasable, though rarer eggs tend to be difficult to consistently acquire.</p>
             </div>
             <br>
             <hr />
-            <br>
             <div class="body-content">
                 <h3 class="title-text">Eggs</h3>
                 <egg-container></egg-container>
@@ -543,8 +543,7 @@ Expecting `+Pt.join(", ")+", got '"+(this.terminals_[w]||w)+"'":Jt="Parse error 
 
             .bee-box {
                 border: var(--box-border-width) solid var(--box-border-color);
-                flex-basis: 270px;
-                flex-grow: 1;
+                flex-basis: 250px;
                 padding: 0 1em 1em 1em;
 
                 > img {
@@ -594,7 +593,7 @@ Expecting `+Pt.join(", ")+", got '"+(this.terminals_[w]||w)+"'":Jt="Parse error 
             </div>
             <hr>
             <br>
-            <div class="body-content-field">
+            <div class="body-content">
                 <div class="two-one-grid">
                     <div>
                         <h3 class="title-text">Mob(s)</h3>

@@ -11,6 +11,7 @@ export class BeeContainerElement extends LitElement {
     @property({ type: Array }) common: Bee[] = [];
     @property({ type: Array }) rare: Bee[] = [];
     @property({ type: Array }) legendary: Bee[] = [];
+    @property({ type: Array }) epic: Bee[] = [];
 
     override connectedCallback() {
         super.connectedCallback();
@@ -20,56 +21,52 @@ export class BeeContainerElement extends LitElement {
     render() {
         return html`
             <h3 class="title-text">Common Bees</h3>
-            <div class="bee-container">
-                ${this.renderBeeBox(this.common)}
-            </div>
-            <br>
+            ${this.renderBeeBox(this.common)}
             <hr>
-            <br>
             <h3 class="title-text">Rare Bees</h3>
-            <div class="bee-container">
-                ${this.renderBeeBox(this.rare)}
-            </div>
-            <br>
+            ${this.renderBeeBox(this.rare)}
             <hr>
-            <br>
             <h3 class="title-text">Legendary Bees</h3>
-            <div class="bee-container">
-                ${this.renderBeeBox(this.legendary)}
-            </div>
+            ${this.renderBeeBox(this.legendary)}
+            <hr>
+            <h3 class="title-text">Epic Bees</h3>
+            ${this.renderBeeBox(this.epic)}
+            <br>
         `;
     }
 
     renderBeeBox(bees: Bee[]) {         // renders each bee box (filtered by rarity above)
         return bees.map((bee: Bee) => html`
-            <div class="bee-box">
-                <h3>${bee.beename}</h3>
-                <p>${bee.desc}<hr>
-                <img src=${bee.imgsrc}
-                     alt="bee">
-                <hr>
-                <p>Token Ability: ${bee.ability}</p>
-                <hr>
-                <p>Bee Stats:</p>
-                <table class="table">
-                    <tr>
-                        <td>Energy</td>
-                        <td>${bee.stats[0]}</td>
-                    </tr>
-                    <tr>
-                        <td>Attack</td>
-                        <td>${bee.stats[1]}</td>
-                    </tr>
-                    <tr>
-                        <td>Speed</td>
-                        <td>${bee.stats[2]}</td>
-                    </tr>
-                    <tr>
-                        <td>Pollen Collection Rate</td>
-                        <td>${bee.stats[3]}</td>
-                    </tr>
-                </table>
+            <div class="bee-container">
+                <img src=${bee.imgsrc} alt="bee">
+                <div class="info">
+                    <h3 class="bee-name">${bee.beename}</h3>
+                    <p>${bee.desc}<p>
+                    <hr>
+                    <p>Token Ability: ${bee.ability}</p>
+                    <hr>
+                    <p>Bee Stats:</p>
+                    <table class="table">
+                        <tr>
+                            <td>Energy</td>
+                            <td>${bee.stats[0]}</td>
+                        </tr>
+                        <tr>
+                            <td>Attack</td>
+                            <td>${bee.stats[1]}</td>
+                        </tr>
+                        <tr>
+                            <td>Speed</td>
+                            <td>${bee.stats[2]}</td>
+                        </tr>
+                        <tr>
+                            <td>Pollen Collection Rate</td>
+                            <td>${bee.stats[3]}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
+            <br>
         `);
     }
 
@@ -79,19 +76,27 @@ export class BeeContainerElement extends LitElement {
         css `
             .bee-container {
                 display: flex;
-                flex-wrap: wrap;
-                gap: 1em;
-            }
-
-            .bee-box {
+                align-items: center;
+                gap: 20px;
                 border: var(--box-border-width) solid var(--box-border-color);
-                flex-basis: 270px;
-                flex-grow: 1;
-                padding: 0 1em 1em 1em;
+                padding: 20px 25px;
 
                 > img {
-                    width: 80%;
+                    width: 250px;
+                    margin: 0 1.5em 0 1.5em;
+                    
                 }
+
+                .info {
+                    flex-grow: 1;
+                    margin: 0 1.5em 0 0;
+                }
+
+                @media screen and (max-width: 50rem) {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+            
             }
 
             .title-text {
@@ -99,6 +104,21 @@ export class BeeContainerElement extends LitElement {
                 text-align: center;
                 font-size: var(--font-size-medium);
                 padding: 0.5em 0.5em 0.5em 0.5em;
+            }
+            
+            .bee-name {
+                font-size: 1.3em;
+                text-shadow: 2px 1.5px var(--color-tertiary);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                
+                > th, td {
+                    border: 1px solid var(--color-text);
+                    padding: 0.5em;
+                }
             }
         `];
 
@@ -110,6 +130,7 @@ export class BeeContainerElement extends LitElement {
                     this.common = json.bees.filter(bee => bee.rarity === "common");
                     this.rare = json.bees.filter(bee => bee.rarity === "rare");
                     this.legendary = json.bees.filter(bee => bee.rarity === "legendary");
+                    this.epic = json.bees.filter(bee => bee.rarity === "epic");
                 }
             })
             .catch(err => console.error("error getting bee data:", err));

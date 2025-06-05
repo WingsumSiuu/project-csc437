@@ -8,14 +8,12 @@ export class NoobShopView extends LitElement {
     render() {
         return html`
             <br>
-            <br>
             <div class="body-content-intro-text">
                 <h1 class="page-title">welcome to the noob shop</h1>
                 <p>the home of your first bee swarm simulator purchase!</p>
             </div>
             <br>
             <hr>
-            <br>
             <div class="body-content">
                 <div class="two-one-grid">
                     <div>
@@ -131,7 +129,7 @@ export class NoobShopView extends LitElement {
                 width: 100%;
                 gap: var(--box-gap);
 
-                @media screen and (max-width: 60rem) {
+                @media screen and (max-width: 70rem) {
                     grid-template-columns: 1fr;
                 }
             }
@@ -156,7 +154,7 @@ export class NoobShopView extends LitElement {
             }
 
             .tool-boxes-flex {
-                @media screen and (max-width: 60rem) {
+                @media screen and (max-width: 70rem) {
                     display: flex;
                     flex-wrap: wrap;
                     gap: 1em;
@@ -172,9 +170,10 @@ export class NoobShopView extends LitElement {
                     height: 250px;
                     padding: 1em 0;
                 }
-
-                @media screen and (max-width: 60rem) {
+                
+                @media screen and (max-width: 70rem) {
                     flex-grow: 1;
+                    
                 }
 
             }

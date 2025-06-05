@@ -28,7 +28,7 @@ export class FieldView extends LitElement {
             </div>
             <hr>
             <br>
-            <div class="body-content-field">
+            <div class="body-content">
                 <div class="two-one-grid">
                     <div>
                         <h3 class="title-text">Mob(s)</h3>
@@ -48,6 +48,8 @@ export class FieldView extends LitElement {
 
                 </div>
             </div>
+            <br>
+            <br>
     `;
     }
 
@@ -57,7 +59,6 @@ export class FieldView extends LitElement {
         return mobs.map((mob: Mob) => html`
             <div class="mob-box">
                 <h3>${mob.mobname} (level ${mob.level})</h3>
-                <br>
                 <hr />
                 <img class="mob-img" src="${mob.image}" alt="imagine a mob picture" />
                 <hr />
@@ -76,19 +77,29 @@ export class FieldView extends LitElement {
                         <td>${mob.stats?.drop}</td>
                     </tr>
                 </table>
+                <br>
             </div>
         `);
     }
 
     renderFlowerBox(flowers: String[]) {         // renders each bee box (filtered by rarity above)
         return flowers.map((flower: String) => html`
-            <div class="flower-box">
+            <div class="flower-box" style="background-color: ${this.getFlowerColor(flower)};">
                 <svg class="flower-icon">
                     <use href="../../icons/bee.svg#icon-flower"></use>
                 </svg>
                 <p>${flower} flowers</p>
             </div>
         `);
+    }
+
+    getFlowerColor(flower: String): string {
+        switch (flower) {
+            case "blue": return "var(--color-flower-blue)";
+            case "red": return "var(--color-flower-red)";
+            case "white": return "var(--color-flower-white)";
+            default: return "white";
+        }
     }
 
     static styles = [
@@ -101,15 +112,8 @@ export class FieldView extends LitElement {
             }
 
             .img-under-text {
-                position: relative;
-                text-align: center;
-                color: white;
                 > img {
                     opacity: .6;
-                }
-                > p {
-                    background-color: rgba(0, 0, 0, 0.35);
-                    padding: var(--box-gap);
                 }
             }
 
@@ -157,19 +161,21 @@ export class FieldView extends LitElement {
                 display: flex;
                 flex-wrap: wrap;
                 border: var(--box-border-width) solid var(--box-border-color);
-
-                >.flower-icon {
+                
+                > .flower-icon {
                     width: var(--icon-size);
                     height: var(--icon-size);
+                    fill: var(--color-text);
+                    padding-top: 0.3em;
                 }
             }
 
-            .table {   
+            table {   
                 width: 100%;
                 border-collapse: collapse;
 
                 >th, td {
-                    border: 1px solid black;
+                    border: 1px solid var(--color-text);
                     padding: 10px 1px 10px 10px;
                     text-align: left;
                 }

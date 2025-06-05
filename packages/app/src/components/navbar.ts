@@ -35,41 +35,56 @@ export class NavbarElement extends LitElement {
 
     protected render() {
 
+        //console.log("Rendering header element", this.userid, this.profile);
+
         return html`
              <header>
                 <div class="navbar">
                     <div class="logo-flex">
-                        <h1  @click=${() => (window.location.href = "/")}>bee swarm simulator
+                        <h1  @click=${() => (window.location.href = "/")}>
                             <svg class="icon">
                                 <use href="/icons/bee.svg#icon-bee" />
                             </svg>
+                            bee swarm simulator
                         </h1>
                     </div>
-
-                    <div class="dark-flex">
-                    <mu-dropdown>
-                        <a slot="actuator">
-                            Hello, ${this.userid || "beekeeper"}
-                        </a>
-                        <menu>
-                            <li>
-                                <label @change=${toggleDarkMode}>
-                                    <input type="checkbox" />
-                                    Dark Mode
-                                </label>
-                            </li>
-                            <li class="when-signed-in">
-                                <a id="signout" @click=${signOut}>Sign Out</a>
-                            </li>
-                            <li class="when-signed-out">
-                                <a href="/login">Sign In</a>
-                            </li>
-                        </menu>
-                    </mu-dropdown>
+                    
+                    <div class="right-flex">
+                        <mu-dropdown>
+                            <a slot="actuator">
+                                Hello, ${this.userid || "beekeeper"}
+                            </a>
+                            <menu>
+                                <li>
+                                    <a href="/app/profile/${this.userid}">
+                                        View Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/app/profile/${this.userid}/edit">
+                                        Edit Profile
+                                    </a>
+                                </li>
+                                <li class="when-signed-in">
+                                    <a id="signout" @click=${signOut}>Sign Out</a>
+                                </li>
+                                <li class="when-signed-out">
+                                    <a href="/login">Sign In</a>
+                                </li>
+                                <li>
+                                    <label @change=${toggleDarkMode}>
+                                        <input type="checkbox" />
+                                        <svg class="icon">
+                                            <use href="/icons/bee.svg#icon-dark-mode" />
+                                        </svg>
+                                    </label>
+                                </li>
+                            </menu>
+                        </mu-dropdown>
                     </div>
                 </div>
             </header>
-        `
+    `
     }
 
     static styles = [
@@ -83,17 +98,33 @@ export class NavbarElement extends LitElement {
                 
                 background-color: var(--color-primary);
                 width: 100%;
-                height: 5em;
+                height: 4em;
                 margin-top: -0.5em;
                 
                 > .logo-flex {
                     padding-left: 1em;
+                    font-size: 0.8em;
                 }
                 
-                > .dark-flex {
+                > .right-flex {
                     padding-right: 1em;
-                }    
+                    display: flex;
+                    align-items: flex-end;
+                    font-size: 1.2em;
+                    
+                    li {
+                        font-size: 0.8em;
+                    }
+                    
+                }
+                
+                nav.logged-out .when-signed-in,
+                nav.logged-in .when-signed-out {
+                    display: none;
+                }
+                
             }
+
     
         `
     ];

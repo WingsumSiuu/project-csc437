@@ -16,13 +16,12 @@ export class EggView extends LitElement {
             <br>
             <br>
             <div class="body-content-intro-text">
-                <h1 class="page-title">the Bee Swarm Simulator Egg List</h1>
-                <p>In Bee Swarm, eggs hatch bees.</p>
-                <p>Eggs are usually purchasable, though rarer eggs tend to be quite difficult to consistently acquire.</p>
+                <h1 class="page-title">the (partial) bee swarm simulator egg list</h1>
+                <p>in bee swarm sim, eggs hatch bees.</p>
+                <p>eggs are usually purchasable, though rarer eggs tend to be difficult to consistently acquire.</p>
             </div>
             <br>
             <hr />
-            <br>
             <div class="body-content">
                 <h3 class="title-text">Eggs</h3>
                 <egg-container></egg-container>

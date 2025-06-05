@@ -22,7 +22,7 @@ export class EggContainerElement extends LitElement {
                 <div class="shop-box">
                     <img width="100px" src="${egg.imgsrc}" alt="egg image" />
                     <div class="info">
-                        <h3>${egg.eggname}</h3>
+                        <h3 class="egg-name">${egg.eggname}</h3>
                         <hr>
                         <p>Cost: ${egg.cost}</p>
                         <hr>
@@ -51,30 +51,10 @@ export class EggContainerElement extends LitElement {
                         </table>
                     </div>
                 </div>
+                <br>
             `)}
         `;
         }
-
-    // render() { return html`
-    //     <div class="shop-box">
-    //         <img width="100px" src="${this.egg.imgsrc}" />
-    //         <div class="info">
-    //             <h3>${this.egg.eggname}</h3>
-    //             <hr />
-    //             <p>Cost: ${this.egg.cost}</p>
-    //             <hr />
-    //             <p>Bee Hatch Chances:</p>
-    //             <table>
-    //                 <tr><th>Rarity</th><th>Chance</th></tr>
-    //                 <tr><td>Common</td><td>${this.egg.rarity[0]}%</td></tr>
-    //                 <tr><td>Rare</td><td>${this.egg.rarity[1]}%</td></tr>
-    //                 <tr><td>Epic</td><td>${this.egg.rarity[2]}%</td></tr>
-    //                 <tr><td>Legendary</td><td>${this.egg.rarity[3]}%</td></tr>
-    //             </table>
-    //         </div>
-    //     </div>
-    // `;
-    // }
 
     static styles = [
         reset.styles,
@@ -99,12 +79,17 @@ export class EggContainerElement extends LitElement {
                 }
             }
 
-            .table {   
+            .egg-name {
+                font-size: 1.3em;
+                text-shadow: 2px 2px var(--color-tertiary);
+            }
+
+            table {   
                 width: 100%;
                 border-collapse: collapse;
 
                 >th, td {
-                    border: 1px solid black;
+                    border: 1px solid var(--color-text);
                     padding: 10px 1px 10px 10px;
                     text-align: left;
                 }

@@ -7,10 +7,12 @@ export class HomeView extends LitElement {
 
     render() {
         return html`
-            <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
-            <hr>
+            <br>
+            <h1 class="main-title">welcome, beekeeper</h1>
             <p class="body-content-intro-text">a simulator game on Roblox that entails whacking a pad of flowers to collect pollen, crack open eggs,
                 all to collect bees!<br>aka a great way to waste time<br><br>free to play (with micro transactions of course)</p>
+            <hr>
+            <img class="main-image" src="/images/bss.png" alt="Bee Swarm Simulator">
             <hr>
             <h1 class="header-text">The Hub</h1>
             <div class="body-content index-grid">
@@ -80,6 +82,12 @@ export class HomeView extends LitElement {
         headings.styles,
         icon.styles,
         css`
+            .main-title {
+                font-size: 2rem;
+                text-align: center;
+                text-shadow: .2em .15em var(--color-text-shadow);
+            }
+            
             .main-image {
                 opacity: 0.65;
             }
@@ -87,6 +95,7 @@ export class HomeView extends LitElement {
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
+                font-size: 1.2em;
             }
 
             .header-text {

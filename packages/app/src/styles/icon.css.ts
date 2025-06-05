@@ -2,12 +2,11 @@ import { css } from "lit";
 
 const styles = css`
     svg.icon {
+        height: 2em;
+        width: 2em;
         display: inline;
-        height: 1.75em;
-        width: 1.75em;
         vertical-align: text-top;
-        fill: currentColor;
-    }
-    `;
+        fill: var(--color-text);
+    }`;
 
 export default { styles };

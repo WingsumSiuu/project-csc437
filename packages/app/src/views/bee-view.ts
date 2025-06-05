@@ -14,15 +14,14 @@ export class BeeView extends LitElement {
     render() {
         return html`
             <br>
-            <br>
+
             <div class="body-content-intro-text">
-                <h1 class="page-title">the bee swarm simulator bees list</h1>
+                <h1 class="page-title">the (partial) bee swarm simulator bees list</h1>
                 <p>your little fuzzy friends who fight for you, collect pollen for you, and convert pollen to honey for you</p>
                 <p>treat them well</p>
             </div>
             <br>
-            <hr> 
-            <br>
+            <hr>
             <div class="body-content">
                 <bee-container></bee-container>
             </div>

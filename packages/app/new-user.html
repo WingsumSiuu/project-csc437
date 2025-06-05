@@ -11,65 +11,43 @@
     <link rel="stylesheet" href="/packages/app/src/styles/page.css" />
     <script type="module">
         import { define, Auth } from "@calpoly/mustang";
-        import { LoginFormElement } from "/src/auth/login-form";
-        import { NavbarElement } from "/src/navbar.ts";
+        import { SignupFormElement } from "/src/components/signup-form";
 
         define({
             "mu-auth": Auth.Provider,
-            "login-form": LoginFormElement,
-            "navbar-element": NavbarElement,
+            "signup-form": SignupFormElement
         });
     </script>
     <style>
-        .page {
-            height: 100vh;
-            grid-template-rows: 1fr fit-content(1fr) 1fr;
-        }
-
-        main.card {
-            align-self: center;
-            grid-column: 3 / span 4;
-        }
-
-        h2 {
-            grid-column: start / end;
-            align-self: end;
-        }
-
-        p {
+        h2, p {
             grid-column: 2 / -2;
             text-align: center;
         }
 
-        label, input {
+        h2, p, label, input {
             font-family: "Mansalva", sans-serif;
         }
+
     </style>
 </head>
-<body class="page">
-<mu-auth>
-    <navbar-element></navbar-element>
-    <br><br>
-    <h3 class="title-text">Sign Up</h3>
-    <main class="card">
-        <login-form api="/auth/register">
+<body>
+    <mu-auth>
+        <h2>welcome, new beekeeper</h2>
+        <signup-form>
             <label>
                 <span>Username:</span>
                 <input name="username" autocomplete="off" />
             </label>
-            <br>
             <label>
                 <span>Password:</span>
                 <input type="password" name="password" />
             </label>
-            <br><br>
-            <span slot="button-label">Create Account</span>
-        </login-form>
-    </main>
-    <p
-    >Already have an account?
-        <a href="login.html">Sign in instead</a>
-    </p>
-</mu-auth>
+        </signup-form>
+        <p>
+            Already have an account and want to
+            <a href="./login.html">Log In</a>
+            instead?
+        </p>
+    </mu-auth>
 </body>
 </html>
