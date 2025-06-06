@@ -24,8 +24,10 @@ export default function update(
                 });
             break;
         case "profile/select":
-            selectProfile(message[1], user).then((profile) =>
-                apply((model) => ({ ...model, profile }))
+            selectProfile(message[1], user).then((profile) => {
+                console.log("applying profile to model:", profile);
+                apply((model) => ({ ...model, profile }));
+                }
             );
             break;
         default:
@@ -71,8 +73,10 @@ function selectProfile(
     })
         .then((response: Response) => {
             if (response.status === 200) {
+                console.log("got it");
                 return response.json();
             }
+            console.log("no it");
             return undefined;
         })
         .then((json: unknown) => {

@@ -14,10 +14,23 @@ router.get("/", (_, res: Response) => {
 router.get("/:userid", (req: Request, res: Response) => {
     const { userid } = req.params;
 
-    Users.get(userid)
-        .then((user: User) => res.json(user))
-        .catch((err) => res.status(404).send(err));
+    Users.get(userid).then((user: User | undefined) => {
+        if (!user) {
+            res.status(404).send(`no user with id ${userid}`);
+        } else {
+            res.json(user);
+        }
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send("Server error");
+    });
 });
+
+
+//     Users.get(userid)
+//         .then((user: User) => res.json(user))
+//         .catch((err) => res.status(404).send(err));
+// });
 
 router.put("/:userid", (req: Request, res: Response) => {
     const { userid } = req.params;
@@ -27,6 +40,7 @@ router.put("/:userid", (req: Request, res: Response) => {
         .then((user: User) => res.json(user))
         .catch((err) => res.status(404).send(err));
 });
+
 
 router.post("/", (req: Request, res: Response) => {
     const newUser = req.body;

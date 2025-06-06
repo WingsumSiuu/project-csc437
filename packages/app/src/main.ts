@@ -8,11 +8,11 @@ import { EggView } from "./views/egg-view";
 import { BeeView } from "./views/bee-view";
 import { FieldView } from "./views/field-view";
 import { NoobShopView } from "./views/noob-shop-view";
-
+import { ProfileViewElement } from "./views/profile-view";
+import { BearView } from "./views/bear-view";
 import { init, Model } from "./model";
 import { Msg } from "./messages";
 import update from "./update";
-
 
 const routes: Switch.Route[] = [
     {
@@ -22,12 +22,25 @@ const routes: Switch.Route[] = [
         `
     },
     {
-        auth: "protected",
-        path: "/app/profile/:id",
+        path: "/app/bear/:name",
         view: (params: Switch.Params) => html`
-              <profile-view user-id=${params.id}>
-              </profile-view>
+            <bear-view src="/api/bears/${params.name}"></bear-view>
         `
+    },
+    {
+        auth: "protected",
+        path: "/app/profile/:userid",
+        view: (params: Switch.Params) => html`
+              <profile-view userid=${params.userid}> </profile-view>
+        `
+    },
+    {
+        auth: "protected",
+        path: "/app/profile/:userid/edit",
+        view: (params: Switch.Params) => html`
+      <profile-view userid=${params.userid} mode="edit">
+      </profile-view>
+    `
     },
     {
         path: "/app/npcs/:name",
@@ -68,10 +81,7 @@ const routes: Switch.Route[] = [
 define({
     "mu-auth": Auth.Provider,
     "mu-history": History.Provider,
-    "mu-store": class AppStore extends Store.Provider<
-        Model,
-        Msg
-    > {
+    "mu-store": class AppStore extends Store.Provider<Model, Msg> {
         constructor() {
             super(update, init, "beeswarm:auth");
         }
@@ -81,7 +91,9 @@ define({
     "egg-view": EggView,
     "bee-view": BeeView,
     "field-view": FieldView,
+    "bear-view": BearView,
     "noob-shop-view": NoobShopView,
+    "profile-view": ProfileViewElement,
     "mu-switch": class AppSwitch extends Switch.Element {
         constructor() {
             super(routes, "beeswarm:history", "beeswarm:auth");

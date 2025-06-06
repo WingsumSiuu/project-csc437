@@ -5,12 +5,6 @@ import Fields from "../services/field-svc";
 
 const router = express.Router();
 
-// router.get("/", (_, res: Response) => {
-//     Fields.index()
-//         .then((list: Field[]) => res.json(list))
-//         .catch((err) => res.status(500).send(err));
-// });
-
 router.get("/:field", (req: Request, res: Response) => {
     const { field } = req.params;
 

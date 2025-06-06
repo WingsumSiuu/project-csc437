@@ -10,10 +10,12 @@
     --color-page-bg: white;
 
     --color-primary: #fdf2b0;
-    --color-secondary: #f3d17c;
+    --color-secondary: #e3d3ab;
     --color-tertiary: #d9e0a3;
     --color-quaternary: #c4cea1;
-    --color-quinary: #cf9963;
+    --color-quinary: #cdae8e;
+    --color-six: #c0cbed;
+    --color-seven: #e6cdcd;
 
     --box-width: 250px;
     --box-padding-width: 10px;
@@ -39,6 +41,8 @@
     --color-flower-blue: rgb(210, 232, 236);
     --color-flower-red: rgb(234, 206, 206);
     --color-flower-white: white;
+
+    --color-line: #cccccc;
 }
 
 body.dark-mode {
@@ -49,6 +53,8 @@ body.dark-mode {
     --color-tertiary: rgb(119, 80, 80);
     --color-quaternary: #798a72;
     --color-quinary: rgba(221, 252, 228, 0.5);
+    --color-six: #677e97;
+    --color-seven: #80536d;
 
     --color-text: rgb(255, 255, 255);
     --color-text-shadow: rgb(166, 85, 85);
@@ -58,4 +64,6 @@ body.dark-mode {
     --color-flower-blue: rgb(53, 101, 106);
     --color-flower-red: rgb(131, 71, 71);
     --color-flower-white: rgb(48, 48, 48);
+
+    --color-line: white;
 }

@@ -64,7 +64,7 @@ export class EggContainerElement extends LitElement {
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                border: var(--box-border-width) solid var(--box-border-color);
+                border: var(--box-border-width) solid var(--color-line);
                 padding: 20px 25px;
 
                 > img {
@@ -76,6 +76,12 @@ export class EggContainerElement extends LitElement {
                     flex-grow: 1;
                     margin: 0 1.5em 0 0;
                     padding-bottom: 1.5em;
+                    padding-left: 1.3em;
+                }
+
+                @media screen and (max-width: 60rem) {
+                    display: flex;
+                    flex-wrap: wrap;
                 }
             }
 
@@ -89,7 +95,7 @@ export class EggContainerElement extends LitElement {
                 border-collapse: collapse;
 
                 >th, td {
-                    border: 1px solid var(--color-text);
+                    border: 1px solid var(--color-line);
                     padding: 10px 1px 10px 10px;
                     text-align: left;
                 }

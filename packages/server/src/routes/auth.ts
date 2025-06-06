@@ -6,6 +6,8 @@ import express, {
 } from "express";
 import jwt from "jsonwebtoken";
 import credentials from "../services/credential-svc";
+import { User } from "../models/user";
+import Users from "../services/user-svc";
 
 const router = express.Router();
 
@@ -39,6 +41,18 @@ router.post("/register", (req: Request, res: Response) => {
     } else {
         credentials
             .create(username, password)
+            .then((creds) => {
+                console.log("creds" + creds);
+
+                return Users.create({
+                    userid: creds.username,
+                    name: creds.username,
+                    nickname: "beekeeper ign",
+                    level: 0,
+                    color: "#ffff00",
+                    profilePicture: "/images/bees/basicbee.webp"
+                }).then(() => creds);
+            })
             .then((creds) => generateAccessToken(creds.username))
             .then((token) => {
                 res.status(201).send({ token: token });

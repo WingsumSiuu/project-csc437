@@ -18,16 +18,21 @@ export class FieldView extends LitElement {
 
     render() {
         return html`
+            <br>
+            <br>
+            <br>
             <div class="body-content-intro-text">
                 <h1 class="page-title">${this.field?.fieldname} field</h1>
                 <p>${this.field?.desc}</p>
             </div>
+            <br>
+            <br>
+            <br>
             <hr>
             <div class="img-under-text">
                 <img src="${this.field?.image}" alt="an image of a field">
             </div>
             <hr>
-            <br>
             <div class="body-content">
                 <div class="two-one-grid">
                     <div>
@@ -141,7 +146,7 @@ export class FieldView extends LitElement {
             }
             
             .mob-box {   
-                border: var(--box-border-width) solid var(--box-border-color);
+                border: var(--box-border-width) solid var(--color-line);;
                 padding: 10px 20px;
                 flex-basis: 250px;
                 flex-grow: 1;
@@ -160,7 +165,7 @@ export class FieldView extends LitElement {
             .flower-box {  
                 display: flex;
                 flex-wrap: wrap;
-                border: var(--box-border-width) solid var(--box-border-color);
+                border: var(--box-border-width) solid var(--color-line);;
                 
                 > .flower-icon {
                     width: var(--icon-size);

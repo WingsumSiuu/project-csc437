@@ -41,7 +41,7 @@ export class NavbarElement extends LitElement {
              <header>
                 <div class="navbar">
                     <div class="logo-flex">
-                        <h1  @click=${() => (window.location.href = "/")}>
+                        <h1 @click=${() => (window.location.href = "/")}>
                             <svg class="icon">
                                 <use href="/icons/bee.svg#icon-bee" />
                             </svg>
@@ -57,19 +57,14 @@ export class NavbarElement extends LitElement {
                             <menu>
                                 <li>
                                     <a href="/app/profile/${this.userid}">
-                                        View Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/app/profile/${this.userid}/edit">
-                                        Edit Profile
+                                        Profile
                                     </a>
                                 </li>
                                 <li class="when-signed-in">
                                     <a id="signout" @click=${signOut}>Sign Out</a>
                                 </li>
                                 <li class="when-signed-out">
-                                    <a href="/login">Sign In</a>
+                                    <a @click=${() => location.assign("/login.html")}>Sign In</a>
                                 </li>
                                 <li>
                                     <label @change=${toggleDarkMode}>

@@ -2,22 +2,33 @@ import { css, html, LitElement } from "lit";
 import headings from "../styles/headings.css";
 import reset from "../styles/reset.css";
 import icon from "../styles/icon.css";
+import {property} from "lit/decorators.js";
 
 export class NoobShopView extends LitElement {
 
+    @property({ type: Boolean }) showGear: boolean = true;
+    @property({ type: Boolean }) showTools: boolean = true;
+
     render() {
         return html`
+            <br>
+            <br>
             <br>
             <div class="body-content-intro-text">
                 <h1 class="page-title">welcome to the noob shop</h1>
                 <p>the home of your first bee swarm simulator purchase!</p>
             </div>
             <br>
+            <br>
             <hr>
             <div class="body-content">
                 <div class="two-one-grid">
                     <div>
-                        <h3 class="title-text">Player Gear</h3>
+                        <h3 class="title-text" @click=${() => this.showGear = !this.showGear} style="cursor: pointer;">
+                            <span class="carrot">${this.showGear ? '▼' : '▶'}</span> player gear
+                        </h3>
+                        
+                        ${this.showGear ? html`
                         <h3 class="subtitle-text">Head</h3>
                         <div class="shop-box">
                             <img src="/images/tools/helmet.jpeg" alt="helmet">
@@ -40,7 +51,7 @@ export class NoobShopView extends LitElement {
                                 <p>+25% loot luck and +5000 pollen capacity</p>
                             </div>
                         </div>
-                        <h3 class="subtitle-text">Pollen Holder</h3>
+                        <h3 class="subtitle-text">pollen holder</h3>
                         <div class="shop-box">
                             <img src="/images/tools/pouch.webp" alt="pouch">
                             <div class="info">
@@ -51,7 +62,7 @@ export class NoobShopView extends LitElement {
                                 <p>price: 0 honey</p>
                             </div>
                         </div>
-                        <h3 class="subtitle-text">Boots</h3>
+                        <h3 class="subtitle-text">boots</h3>
                         <div class="shop-box">
                             <img src="/images/tools/basicboots.webp" alt="basic boots">
                             <div class="info">
@@ -62,9 +73,13 @@ export class NoobShopView extends LitElement {
                                 <p>+4 movement speed</p>
                             </div>
                         </div>
+                        `: ''}
                     </div>
                     <div>
-                        <h3 class="title-text">Tools Sold</h3>
+                        <h3 class="title-text" @click=${() => this.showTools = !this.showTools} style="cursor: pointer;">
+                            <span class="carrot">${this.showTools ? '▼' : '▶'}</span> tools sold
+                        </h3>
+                         ${this.showTools ? html`
                         <div class="tool-boxes-flex">
                             <div class="shop-tool-box">
                                 <h3>scooper</h3>
@@ -87,6 +102,7 @@ export class NoobShopView extends LitElement {
                                 <p>pollen Collection Rate: 2 per 0.8 seconds</p>
                             </div>
                         </div>
+                        `: ''}
                     </div>
                 </div>
             </div>
@@ -98,6 +114,10 @@ export class NoobShopView extends LitElement {
         headings.styles,
         icon.styles,
         css`
+            .carrot {
+                font-size: 0.7em;
+            }
+            
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
@@ -133,12 +153,11 @@ export class NoobShopView extends LitElement {
                     grid-template-columns: 1fr;
                 }
             }
-
             .shop-box {   
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                border: var(--box-border-width) solid var(--box-border-color);
+                border: var(--box-border-width) solid var(--color-line);;
                 padding: 20px 25px;
                 margin-top: -1.35em;
 
@@ -162,7 +181,7 @@ export class NoobShopView extends LitElement {
             }
             
             .shop-tool-box {   
-                border: var(--box-border-width) solid var(--box-border-color);
+                border: var(--box-border-width) solid var(--color-line);
                 padding: 0 20px;
                 margin-bottom: 1em;
 

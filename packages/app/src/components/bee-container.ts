@@ -13,6 +13,11 @@ export class BeeContainerElement extends LitElement {
     @property({ type: Array }) legendary: Bee[] = [];
     @property({ type: Array }) epic: Bee[] = [];
 
+    @property({ type: Boolean }) showCommon: boolean = true;
+    @property({ type: Boolean }) showRare: boolean = true;
+    @property({ type: Boolean }) showEpic: boolean = true;
+    @property({ type: Boolean }) showLegendary: boolean = true;
+
     override connectedCallback() {
         super.connectedCallback();
         if (this.src) this.hydrate(this.src);
@@ -20,17 +25,28 @@ export class BeeContainerElement extends LitElement {
 
     render() {
         return html`
-            <h3 class="title-text">Common Bees</h3>
-            ${this.renderBeeBox(this.common)}
+            <h3 class="title-text" @click=${() => this.showCommon = !this.showCommon}>
+                <span class="carrot">${this.showCommon ? '▼' : '▶'}</span> the one and only common bee
+            </h3>
+            ${this.showCommon ? this.renderBeeBox(this.common) : ''}
             <hr>
-            <h3 class="title-text">Rare Bees</h3>
-            ${this.renderBeeBox(this.rare)}
+            
+            <h3 class="title-text" @click=${() => this.showRare = !this.showRare}>
+                <span class="carrot">${this.showRare ? '▼' : '▶'}</span> rare bees 
+            </h3>
+            ${this.showRare ? this.renderBeeBox(this.rare) : ''}
             <hr>
-            <h3 class="title-text">Legendary Bees</h3>
-            ${this.renderBeeBox(this.legendary)}
+    
+            <h3 class="title-text" @click=${() => this.showLegendary = !this.showLegendary}>
+                <span class="carrot">${this.showLegendary ? '▼' : '▶'}</span> legendary bees
+            </h3>
+            ${this.showLegendary ? this.renderBeeBox(this.legendary) : ''}
             <hr>
-            <h3 class="title-text">Epic Bees</h3>
-            ${this.renderBeeBox(this.epic)}
+    
+            <h3 class="title-text" @click=${() => this.showEpic = !this.showEpic}>
+                <span class="carrot">${this.showEpic ? '▼' : '▶'}</span> epic bees
+            </h3>
+            ${this.showEpic ? this.renderBeeBox(this.epic) : ''}
             <br>
         `;
     }
@@ -74,6 +90,10 @@ export class BeeContainerElement extends LitElement {
         reset.styles,
         headings.styles,
         css `
+            .carrot {
+                font-size: 0.7em;
+            }
+            
             .bee-container {
                 display: flex;
                 align-items: center;
@@ -90,9 +110,11 @@ export class BeeContainerElement extends LitElement {
                 .info {
                     flex-grow: 1;
                     margin: 0 1.5em 0 0;
+                    padding-bottom: 1.5em;
+                    padding-left: 1.3em;
                 }
 
-                @media screen and (max-width: 50rem) {
+                @media screen and (max-width: 60rem) {
                     display: flex;
                     flex-wrap: wrap;
                 }
@@ -116,7 +138,7 @@ export class BeeContainerElement extends LitElement {
                 border-collapse: collapse;
                 
                 > th, td {
-                    border: 1px solid var(--color-text);
+                    border: 1px solid var(--color-line);
                     padding: 0.5em;
                 }
             }

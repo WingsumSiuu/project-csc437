@@ -6,3 +6,5 @@ export interface User {
     color: string | undefined;
     profilePicture: string | undefined;
 }
+
+

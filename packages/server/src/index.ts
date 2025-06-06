@@ -6,7 +6,8 @@ import { getFile, saveFile } from "./services/filesystem";  // images
 import eggs from "./routes/eggs";
 import fields from "./routes/fields";
 import bees from "./routes/bees";
-import users from "./routes/users";
+import bears from "./routes/bears";
+import users from "./routes/user";
 import fs from "node:fs/promises";
 import path from "path";
 
@@ -32,20 +33,16 @@ app.use("/auth", auth);
 app.use("/api/fields", fields);
 app.use("/api/eggs", eggs);
 app.use("/api/bees", bees);
+app.use("/api/bears", bears);
 app.use("/api/users", authenticateUser, users);
 
 // image routes
 app.post("/images", saveFile);
 app.get("/images/:id", getFile);
 
-// app.get("/login", (req: Request, res: Response) => {
-//     res
-//         .set("Content-Type", "text/html")
-//         .send(renderPage(LoginPage.render()));
-// });
-
 // starting server
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
+
 

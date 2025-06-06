@@ -29,12 +29,9 @@ const UserSchema = new import_mongoose.Schema(
     nickname: { type: String, trim: true },
     level: Number,
     color: String,
-    profilePicture: {
-      data: Buffer,
-      contentType: String
-    }
+    profilePicture: String
   },
-  { collection: "User" }
+  { collection: "user_profiles" }
 );
 const UserModel = (0, import_mongoose.model)(
   "User",
@@ -48,21 +45,31 @@ function get(userid) {
     throw `${userid} Not Found`;
   });
 }
-function update(userid, user) {
-  return UserModel.findOneAndUpdate({ userid }, user, {
-    new: true
+function update(userid, profile) {
+  return UserModel.findOne({ userid }).then((found) => {
+    if (!found) throw `${userid} Not Found`;
+    else
+      return UserModel.findByIdAndUpdate(
+        found._id,
+        profile,
+        {
+          new: true
+        }
+      );
   }).then((updated) => {
-    if (!updated) throw `${userid} not found`;
+    if (!updated) throw `${userid} not updated`;
     else return updated;
   });
 }
-function create(user) {
-  const p = new UserModel(user);
+function create(profile) {
+  const p = new UserModel(profile);
   return p.save();
 }
 function remove(userid) {
-  return UserModel.findOneAndDelete({ userid }).then((deleted) => {
-    if (!deleted) throw `${userid} not deleted`;
-  });
+  return UserModel.findOneAndDelete({ userid }).then(
+    (deleted) => {
+      if (!deleted) throw `${userid} not deleted`;
+    }
+  );
 }
 var user_svc_default = { index, get, update, create, remove };

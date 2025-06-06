@@ -36,6 +36,7 @@ var import_dotenv = __toESM(require("dotenv"));
 var import_express = __toESM(require("express"));
 var import_jsonwebtoken = __toESM(require("jsonwebtoken"));
 var import_credential_svc = __toESM(require("../services/credential-svc"));
+var import_user_svc = __toESM(require("../services/user-svc"));
 const router = import_express.default.Router();
 import_dotenv.default.config();
 const TOKEN_SECRET = process.env.TOKEN_SECRET || "NOT_A_SECRET";
@@ -57,7 +58,17 @@ router.post("/register", (req, res) => {
   if (typeof username !== "string" || typeof password !== "string") {
     res.status(400).send("Bad request: Invalid input data.");
   } else {
-    import_credential_svc.default.create(username, password).then((creds) => generateAccessToken(creds.username)).then((token) => {
+    import_credential_svc.default.create(username, password).then((creds) => {
+      console.log("creds" + creds);
+      return import_user_svc.default.create({
+        userid: creds.username,
+        name: creds.username,
+        nickname: "beekeeper ign",
+        level: 0,
+        color: "#ffff00",
+        profilePicture: "/images/bees/basicbee.webp"
+      }).then(() => creds);
+    }).then((creds) => generateAccessToken(creds.username)).then((token) => {
       res.status(201).send({ token });
     }).catch((err) => {
       res.status(409).send({ error: err.message });

@@ -8,17 +8,13 @@ const UserSchema = new Schema<User>(
         nickname: { type: String, trim: true },
         level: Number,
         color: String,
-        profilePicture: {
-            data: Buffer,
-            contentType: String
-        },
+        profilePicture: String,
     },
-    { collection: "User" }
+    { collection: "user_profiles" }
 );
 
 const UserModel = model<User>(
-    "User",
-    UserSchema
+    "User", UserSchema
 );
 
 function index(): Promise<User[]> {
@@ -35,27 +31,37 @@ function get(userid: String): Promise<User> {
 
 function update(
     userid: String,
-    user: User
+    profile: User
 ): Promise<User> {
-    return UserModel.findOneAndUpdate({ userid }, user, {
-        new: true
-    }).then((updated) => {
-        if (!updated) throw `${userid} not found`;
-        else return updated as User;
-    });
+    return UserModel.findOne({ userid })
+        .then((found) => {
+            if (!found) throw `${userid} Not Found`;
+            else
+                return UserModel.findByIdAndUpdate(
+                    found._id,
+                    profile,
+                    {
+                        new: true
+                    }
+                );
+        })
+        .then((updated) => {
+            if (!updated) throw `${userid} not updated`;
+            else return updated as User;
+        });
 }
 
-function create(user: User): Promise<User> {
-    const p = new UserModel(user);
+function create(profile: User): Promise<User> {
+    const p = new UserModel(profile);
     return p.save();
 }
 
 function remove(userid: String): Promise<void> {
-    return UserModel
-        .findOneAndDelete({ userid })
-        .then((deleted) => {
+    return UserModel.findOneAndDelete({ userid }).then(
+        (deleted) => {
             if (!deleted) throw `${userid} not deleted`;
-        });
+        }
+    );
 }
 
 export default { index, get, update, create, remove };

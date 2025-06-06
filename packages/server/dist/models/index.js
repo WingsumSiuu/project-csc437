@@ -19,10 +19,12 @@ __reExport(models_exports, require("./bee"), module.exports);
 __reExport(models_exports, require("./egg"), module.exports);
 __reExport(models_exports, require("./field"), module.exports);
 __reExport(models_exports, require("./user"), module.exports);
+__reExport(models_exports, require("./bear"), module.exports);
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   ...require("./bee"),
   ...require("./egg"),
   ...require("./field"),
-  ...require("./user")
+  ...require("./user"),
+  ...require("./bear")
 });

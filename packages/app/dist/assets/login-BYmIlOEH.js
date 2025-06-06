@@ -1,4 +1,4 @@
-import{a as m,x as d,i as p,d as f,c as b}from"./lit-element-DyX19HMz.js";import{r as g,h as v,a as u,n as c}from"./reset.css-C_ssTLzj.js";var y=Object.defineProperty,i=(h,s,t,o)=>{for(var e=void 0,r=h.length-1,l;r>=0;r--)(l=h[r])&&(e=l(s,t,e)||e);return e&&y(s,t,e),e};const n=class n extends m{constructor(){super(...arguments),this.formData={},this.redirect="/"}get canSubmit(){return!!(this.api&&this.formData.username&&this.formData.password)}render(){return d`
+import{a as m,x as d,i as p,d as f,c as b}from"./lit-element-D-IlZiMg.js";import{r as g,h as v,a as u,n as c}from"./reset.css-GqgX-KTo.js";var y=Object.defineProperty,i=(h,s,t,o)=>{for(var e=void 0,r=h.length-1,l;r>=0;r--)(l=h[r])&&(e=l(s,t,e)||e);return e&&y(s,t,e),e};const n=class n extends m{constructor(){super(...arguments),this.formData={},this.redirect="/"}get canSubmit(){return!!(this.api&&this.formData.username&&this.formData.password)}render(){return d`
       <form
         @change=${s=>this.handleChange(s)}
         @submit=${s=>this.handleSubmit(s)}

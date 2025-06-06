@@ -20,16 +20,4 @@ function index(): Promise<Egg[]> {
     return EggModel.find().sort({ eggname: 1 });
 }
 
-// oops index does the exact thing
-// function get(): Promise<Egg[]> {
-//     return EggModel.find().sort({ eggname: 1 })
-//         .then((eggs: Egg[]) => {
-//             //console.log(eggs);
-//             return eggs;
-//         })
-//         .catch((err) => {
-//             throw `eggs not found`;
-//         });
-// }
-
 export default { index };
