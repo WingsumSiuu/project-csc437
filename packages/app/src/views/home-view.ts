@@ -56,46 +56,50 @@ export class HomeView extends LitElement {
             <div class="body-content index-grid">
                 <div class="small-border-box">
                     <h3 class="title-text">0 bee zone</h3>
-                    <p>fields</p>
-                    <ul>
-                        <li>
-                            <a href="/app/field/dandelion">dandelion field</a>
-                        </li>
-                    </ul>
-                    <p>shops</p>
-                    <ul>
-                        <li>
-                            <a href="/app/shops/noob-shop">noob shop</a>
-                        </li>
-                    </ul>
-                    <p>bears</p>
-                    <ul>
-                        <li>
-                            <a href="/app/bear/black">black bear</a>
-                        </li>
-                        <li>
-                            <a href="/app/bear/mother">mother bear</a>
-                        </li>
-                    </ul>
+                    <div class="indent">
+                        <p>fields</p>
+                        <ul>
+                            <li>
+                                <a href="/app/field/dandelion">dandelion field</a>
+                            </li>
+                        </ul>
+                        <p>shops</p>
+                        <ul>
+                            <li>
+                                <a href="/app/shops/noob-shop">noob shop</a>
+                            </li>
+                        </ul>
+                        <p>bears</p>
+                        <ul>
+                            <li>
+                                <a href="/app/bear/black">black bear</a>
+                            </li>
+                            <li>
+                                <a href="/app/bear/mother">mother bear</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="small-border-box">
                     <h3 class="title-text">5 bee zone</h3>
-                    <p>fields</p>
-                    <ul>
-                        <li>
-                            <a href="/app/field/spider">spider field</a>
-                        </li>
-                        <li>
-                            <a href="/app/field/bamboo">bamboo field</a>
-                        </li>
-                    </ul>
-                    <p>no shop in zone</p>
-                    <p>bears</p>
-                    <ul>
-                        <li>
-                            <a href="/app/bear/panda">panda bear</a>
-                        </li>
-                    </ul>
+                    <div class="indent">
+                        <p>fields</p>
+                        <ul>
+                            <li>
+                                <a href="/app/field/spider">spider field</a>
+                            </li>
+                            <li>
+                                <a href="/app/field/bamboo">bamboo field</a>
+                            </li>
+                        </ul>
+                        <p>no shop in zone</p>
+                        <p>bears</p>
+                        <ul>
+                            <li>
+                                <a href="/app/bear/panda">panda bear</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="small-border-box">
                     <h3 class="title-text">miscellaneous</h3>
@@ -146,6 +150,12 @@ export class HomeView extends LitElement {
             .card {
                 border: 2px solid var(--color-line);
                 border-radius: 1em;
+
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 60px 60px;
             }
 
             .def {
@@ -189,6 +199,20 @@ export class HomeView extends LitElement {
 
                 @media screen and (max-width: 50rem) {
                     grid-template-columns: 1fr;
+                }
+            }
+            
+            .small-border-box {
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
+
+                border: 2px solid var(--color-line);
+                
+                > .indent {
+                    padding: 0 1em;
                 }
             }
         `

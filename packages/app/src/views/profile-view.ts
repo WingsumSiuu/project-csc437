@@ -278,6 +278,12 @@ export class ProfileViewElement extends View<Model, Msg> {
                 padding: 0 1.5em;
                 border: 2px solid var(--color-line);
                 border-radius: 1em;
+
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
             }
 
             .banner {

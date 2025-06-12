@@ -42,7 +42,7 @@ app.use("/api/fields", import_fields.default);
 app.use("/api/eggs", import_eggs.default);
 app.use("/api/bees", import_bees.default);
 app.use("/api/bears", import_bears.default);
-app.use("/api/users", import_user.default);
+app.use("/api/users", import_auth.authenticateUser, import_user.default);
 app.post("/images", import_filesystem.saveFile);
 app.get("/images/:id", import_filesystem.getFile);
 app.listen(port, () => {

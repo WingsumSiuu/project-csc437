@@ -23,6 +23,9 @@ export class PollenView extends View<Model, Msg> {
 
     render() {
         const {
+            nickname,
+            color,
+            profilePicture,
             pollen
         } = this.user || {};
 
@@ -32,15 +35,36 @@ export class PollenView extends View<Model, Msg> {
             <br>
             <br>
             <div class="body-content-intro-text">
-                <h1 class="page-title">the bee swarm experience</h1>
+                <h1 class="page-title">the bee swarm experience (not!)</h1>
                 <p>welcome to the <s>cookie</s> pollen clicker!</p>
             </div>
             <br>
             <br>
             <hr>
             <div class="body-content">
-                <p>${pollen}</p>
-                <button @click=${this.handleClick}>Collect Pollen</button>
+                <div class="form-card">
+                    <div class="two-one-grid">
+                        <div>
+                            <p>currently playing...</p>
+                            <h3 style="padding-left: 1.5em;" class="subtitle-text">${nickname || "none"}</h3>
+                            <img src=${profilePicture} class="profpic" style="border: 1em solid ${color}" alt="pp"/>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="col">
+                            <h3 style="padding-left: 1.5em; padding-bottom: 0.25em;" class="title-text">
+                                <svg class="icon">
+                                    <use href="/icons/bee.svg#icon-bee" />
+                                </svg>
+                                pollen count
+                                <svg class="icon">
+                                    <use href="/icons/bee.svg#icon-bee" />
+                                </svg>
+                            </h3>
+                            <h3 style="font-size: 1.5em">- ${pollen} -</h3>
+                            <button @click=${this.handleClick}>Collect Pollen</button>
+                        </div>
+                    </div>
             </div>
     `;
     }
@@ -65,20 +89,64 @@ export class PollenView extends View<Model, Msg> {
             }
 
             .title-text {
-                background-color: var(--color-tertiary);
+                background-color: var(--color-primary);
                 text-align: center;
                 font-size: var(--font-size-medium);
                 padding: 0.5em 0.5em 0.5em 0.5em;
             }
 
             .subtitle-text {
-                background-color: var(--color-quaternary);
+                background-color: var(--color-primary);
                 text-align: right;
                 font-size: var(--font-size-medium);
                 padding: 0.15em 0.5em 0.15em 0.5em;
 
             }
-            
+
+            button {
+                font-family: "Mansalva", sans-serif;
+                font-size: 1.15em;
+                border: none;
+                padding: 0.5em 1em;
+                background-color: var(--color-primary);
+                border-radius: 30%;
+                color: var(--color-text);
+            }
+
+            .form-card {
+                padding: 1em 1.5em;
+                border: 2px solid var(--color-line);
+                border-radius: 1em;
+
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
+            }
+
+            .two-one-grid {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                width: 100%;
+                gap: var(--box-gap);
+
+                @media screen and (max-width: 70rem) {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .col {
+                text-align: center;
+                padding: 7.9em 5em;
+            }
+
+            .profpic {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
         
     `];
 

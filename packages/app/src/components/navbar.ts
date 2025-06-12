@@ -59,6 +59,9 @@ export class NavbarElement extends View<Model, Msg> {
                         <a href="/app">home</a>
                         <a href="/app/eggs">eggs</a>
                         <a href="/app/bees">bees</a>
+                        ${this.loggedIn ? html`
+                            <a href="/app/pollen/${this.userid}"> my pollen </a>
+                        ` : ''}
                     </nav>
                     
                     <div class="right-flex">
@@ -198,7 +201,7 @@ export class NavbarElement extends View<Model, Msg> {
 
     renderSignOutButton() {
         return html`
-            <button
+            <button style="color: var(--color-text);"
                     @click=${(e: UIEvent) => {
             Events.relay(e, "auth:message", ["auth/signout"]);
         }}
@@ -210,7 +213,7 @@ export class NavbarElement extends View<Model, Msg> {
 
     renderSignInButton() {
         return html`
-            <button @click=${() => {
+            <button style="color: var(--color-text);" @click=${() => {
             window.location.href = "/login.html";
         }}>
                 Sign In

@@ -1,11 +1,11 @@
-import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c as g,n,f as te,g as S,j as re,_ as se,s as ie}from"./reset.css-DRchHByS.js";const oe=c`
+import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as x,c as b,n,f as te,g as S,j as re,_ as se,s as ie}from"./reset.css-DRchHByS.js";const oe=c`
     svg.icon {
         height: 2em;
         width: 2em;
         display: inline;
         vertical-align: text-top;
         fill: var(--color-text);
-    }`,x={styles:oe};var ae=Object.defineProperty,le=Object.getOwnPropertyDescriptor,L=(o,t,e,s)=>{for(var r=s>1?void 0:s?le(t,e):t,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=(s?a(t,e,r):a(r))||r);return s&&r&&ae(t,e,r),r};function ne(o){const e=o.target.checked;H.relay(o,"dark-mode",{checked:e})}const O=class O extends A{constructor(){super("beeswarm:model"),this.loggedIn=!1,this._authObserver=new V(this,"beeswarm:auth")}get profile(){return console.log("hello "+this.userid+" "+this.model.profile),this.model.profile}render(){var s,r;const t=((s=this.profile)==null?void 0:s.profilePicture)||"/images/bees/basicbee.webp",e=((r=this.profile)==null?void 0:r.color)||"#cccccc";return l`
+    }`,y={styles:oe};var ae=Object.defineProperty,le=Object.getOwnPropertyDescriptor,L=(o,t,e,s)=>{for(var r=s>1?void 0:s?le(t,e):t,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=(s?a(t,e,r):a(r))||r);return s&&r&&ae(t,e,r),r};function ne(o){const e=o.target.checked;H.relay(o,"dark-mode",{checked:e})}const O=class O extends A{constructor(){super("beeswarm:model"),this.loggedIn=!1,this._authObserver=new V(this,"beeswarm:auth")}get profile(){return console.log("hello "+this.userid+" "+this.model.profile),this.model.profile}render(){var s,r;const t=((s=this.profile)==null?void 0:s.profilePicture)||"/images/bees/basicbee.webp",e=((r=this.profile)==null?void 0:r.color)||"#cccccc";return l`
              <header>
                 <div class="navbar">
                     <div class="logo-flex">
@@ -21,6 +21,9 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                         <a href="/app">home</a>
                         <a href="/app/eggs">eggs</a>
                         <a href="/app/bees">bees</a>
+                        ${this.loggedIn?l`
+                            <a href="/app/pollen/${this.userid}"> my pollen </a>
+                        `:""}
                     </nav>
                     
                     <div class="right-flex">
@@ -61,16 +64,16 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 </div>
             </header>
     `}connectedCallback(){super.connectedCallback(),this._authObserver.observe(({user:t})=>{t&&t.authenticated?(this.loggedIn=!0,this.userid=t.username,console.log("hello "+this.userid),this.dispatchMessage(["profile/select",{userid:this.userid}])):(this.loggedIn=!1,this.userid=void 0)})}static initializeOnce(){function t(e,s){e.classList.toggle("dark-mode",s)}document.body.addEventListener("dark-mode",e=>{var s;return t(e.currentTarget,(s=e.detail)==null?void 0:s.checked)})}renderSignOutButton(){return l`
-            <button
+            <button style="color: var(--color-text);"
                     @click=${t=>{H.relay(t,"auth:message",["auth/signout"])}}
             >
                 Sign Out
             </button>
         `}renderSignInButton(){return l`
-            <button @click=${()=>{window.location.href="/login.html"}}>
+            <button style="color: var(--color-text);" @click=${()=>{window.location.href="/login.html"}}>
                 Sign In
             </button>
-        `}};O.uses=P({"mu-dropdown":ee.Element}),O.styles=[h.styles,m.styles,x.styles,c`
+        `}};O.uses=_({"mu-dropdown":ee.Element}),O.styles=[h.styles,m.styles,y.styles,c`
             .navbar {
                 justify-content: space-between;
 
@@ -117,7 +120,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 display: flex;
                 gap: 1.5rem;
             }
-        `];let u=O;L([y()],u.prototype,"loggedIn",2);L([y()],u.prototype,"userid",2);L([y()],u.prototype,"profile",1);var de=Object.defineProperty,J=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&de(t,e,r),r};const T=class T extends g{constructor(){super(...arguments),this.showDef=!1,this.showDev=!1}render(){return l`
+        `];let f=O;L([x()],f.prototype,"loggedIn",2);L([x()],f.prototype,"userid",2);L([x()],f.prototype,"profile",1);var de=Object.defineProperty,J=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&de(t,e,r),r};const T=class T extends b{constructor(){super(...arguments),this.showDef=!1,this.showDev=!1}render(){return l`
             <br>
             <br>
             <br>
@@ -163,46 +166,50 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             <div class="body-content index-grid">
                 <div class="small-border-box">
                     <h3 class="title-text">0 bee zone</h3>
-                    <p>fields</p>
-                    <ul>
-                        <li>
-                            <a href="/app/field/dandelion">dandelion field</a>
-                        </li>
-                    </ul>
-                    <p>shops</p>
-                    <ul>
-                        <li>
-                            <a href="/app/shops/noob-shop">noob shop</a>
-                        </li>
-                    </ul>
-                    <p>bears</p>
-                    <ul>
-                        <li>
-                            <a href="/app/bear/black">black bear</a>
-                        </li>
-                        <li>
-                            <a href="/app/bear/mother">mother bear</a>
-                        </li>
-                    </ul>
+                    <div class="indent">
+                        <p>fields</p>
+                        <ul>
+                            <li>
+                                <a href="/app/field/dandelion">dandelion field</a>
+                            </li>
+                        </ul>
+                        <p>shops</p>
+                        <ul>
+                            <li>
+                                <a href="/app/shops/noob-shop">noob shop</a>
+                            </li>
+                        </ul>
+                        <p>bears</p>
+                        <ul>
+                            <li>
+                                <a href="/app/bear/black">black bear</a>
+                            </li>
+                            <li>
+                                <a href="/app/bear/mother">mother bear</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="small-border-box">
                     <h3 class="title-text">5 bee zone</h3>
-                    <p>fields</p>
-                    <ul>
-                        <li>
-                            <a href="/app/field/spider">spider field</a>
-                        </li>
-                        <li>
-                            <a href="/app/field/bamboo">bamboo field</a>
-                        </li>
-                    </ul>
-                    <p>no shop in zone</p>
-                    <p>bears</p>
-                    <ul>
-                        <li>
-                            <a href="/app/bear/panda">panda bear</a>
-                        </li>
-                    </ul>
+                    <div class="indent">
+                        <p>fields</p>
+                        <ul>
+                            <li>
+                                <a href="/app/field/spider">spider field</a>
+                            </li>
+                            <li>
+                                <a href="/app/field/bamboo">bamboo field</a>
+                            </li>
+                        </ul>
+                        <p>no shop in zone</p>
+                        <p>bears</p>
+                        <ul>
+                            <li>
+                                <a href="/app/bear/panda">panda bear</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="small-border-box">
                     <h3 class="title-text">miscellaneous</h3>
@@ -218,7 +225,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             </div>
             <br>
             <br>
-    `}};T.styles=[h.styles,m.styles,x.styles,c`
+    `}};T.styles=[h.styles,m.styles,y.styles,c`
             .carrot {
                 font-size: 0.7em;
             }
@@ -246,6 +253,12 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             .card {
                 border: 2px solid var(--color-line);
                 border-radius: 1em;
+
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 60px 60px;
             }
 
             .def {
@@ -291,7 +304,21 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     grid-template-columns: 1fr;
                 }
             }
-        `];let w=T;J([n({type:Boolean})],w.prototype,"showDef");J([n({type:Boolean})],w.prototype,"showDev");var ce=Object.defineProperty,Q=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&ce(t,e,r),r};const I=class I extends g{constructor(){super(...arguments),this.src="/api/eggs",this.eggs=[]}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){return l`
+            
+            .small-border-box {
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
+
+                border: 2px solid var(--color-line);
+                
+                > .indent {
+                    padding: 0 1em;
+                }
+            }
+        `];let w=T;J([n({type:Boolean})],w.prototype,"showDef");J([n({type:Boolean})],w.prototype,"showDev");var ce=Object.defineProperty,Q=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&ce(t,e,r),r};const I=class I extends b{constructor(){super(...arguments),this.src="/api/eggs",this.eggs=[]}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){return l`
             ${this.eggs.map(t=>l`
                 <div class="shop-box">
                     <img width="100px" src="${t.imgsrc}" alt="egg image" />
@@ -335,6 +362,12 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 border: var(--box-border-width) solid var(--color-line);
                 padding: 20px 25px;
 
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
+
                 > img {
                     width: 150px;
                     margin: 0 1.5em 0 1.5em;
@@ -368,7 +401,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     text-align: left;
                 }
             }
-        `];let $=I;Q([n()],$.prototype,"src");Q([n({type:Array})],$.prototype,"eggs");const B=class B extends g{render(){return l`
+        `];let $=I;Q([n()],$.prototype,"src");Q([n({type:Array})],$.prototype,"eggs");const B=class B extends b{render(){return l`
             <br>
             <br>
             <br>
@@ -384,7 +417,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 <h3 class="title-text">eggs</h3>
                 <egg-container></egg-container>
             </div>
-            `}};B.uses=P({"egg-container":$}),B.styles=[h.styles,m.styles,x.styles,c`
+            `}};B.uses=_({"egg-container":$}),B.styles=[h.styles,m.styles,y.styles,c`
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
@@ -402,7 +435,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 padding: 0.5em 0.5em 0.5em 0.5em;
             }
 
-        `];let j=B;var pe=Object.defineProperty,b=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&pe(t,e,r),r};const F=class F extends g{constructor(){super(...arguments),this.src="/api/bees",this.common=[],this.rare=[],this.legendary=[],this.epic=[],this.showCommon=!0,this.showRare=!0,this.showEpic=!0,this.showLegendary=!0}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){return l`
+        `];let j=B;var pe=Object.defineProperty,g=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&pe(t,e,r),r};const F=class F extends b{constructor(){super(...arguments),this.src="/api/bees",this.common=[],this.rare=[],this.legendary=[],this.epic=[],this.showCommon=!0,this.showRare=!0,this.showEpic=!0,this.showLegendary=!0}connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){return l`
             <h3 class="title-text" @click=${()=>this.showCommon=!this.showCommon}>
                 <span class="carrot">${this.showCommon?"▼":"▶"}</span> the one and only common bee
             </h3>
@@ -469,6 +502,12 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 border: var(--box-border-width) solid var(--color-line);
                 padding: 20px 25px;
 
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
+
                 > img {
                     width: 250px;
                     margin: 0 1.5em 0 1.5em;
@@ -510,7 +549,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     padding: 0.5em;
                 }
             }
-        `];let d=F;b([n()],d.prototype,"src");b([n({type:Array})],d.prototype,"common");b([n({type:Array})],d.prototype,"rare");b([n({type:Array})],d.prototype,"legendary");b([n({type:Array})],d.prototype,"epic");b([n({type:Boolean})],d.prototype,"showCommon");b([n({type:Boolean})],d.prototype,"showRare");b([n({type:Boolean})],d.prototype,"showEpic");b([n({type:Boolean})],d.prototype,"showLegendary");const D=class D extends g{render(){return l`
+        `];let d=F;g([n()],d.prototype,"src");g([n({type:Array})],d.prototype,"common");g([n({type:Array})],d.prototype,"rare");g([n({type:Array})],d.prototype,"legendary");g([n({type:Array})],d.prototype,"epic");g([n({type:Boolean})],d.prototype,"showCommon");g([n({type:Boolean})],d.prototype,"showRare");g([n({type:Boolean})],d.prototype,"showEpic");g([n({type:Boolean})],d.prototype,"showLegendary");const D=class D extends b{render(){return l`
             <br>
             <br>
             <br>
@@ -524,7 +563,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             <div class="body-content">
                 <bee-container></bee-container>
             </div>
-        `}};D.uses=P({"bee-container":d}),D.styles=[h.styles,m.styles,x.styles,c`
+        `}};D.uses=_({"bee-container":d}),D.styles=[h.styles,m.styles,y.styles,c`
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
@@ -535,7 +574,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 text-shadow: 2px 2px var(--color-text-shadow);
             }
 
-        `];let R=D;var he=Object.defineProperty,K=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&he(t,e,r),r};const q=class q extends g{connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){var t,e,s,r,i,a,v,E;return l`
+        `];let R=D;var he=Object.defineProperty,K=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&he(t,e,r),r};const G=class G extends b{connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){var t,e,s,r,i,a,v,E;return l`
             <br>
             <br>
             <br>
@@ -599,7 +638,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 </svg>
                 <p>${e} flowers</p>
             </div>
-        `)}getFlowerColor(t){switch(t){case"blue":return"var(--color-flower-blue)";case"red":return"var(--color-flower-red)";case"white":return"var(--color-flower-white)";default:return"white"}}hydrate(t){fetch(t).then(e=>e.json()).then(e=>{this.field=e}).catch(e=>console.error("error getting field+mob data:",e))}};q.styles=[h.styles,m.styles,c`
+        `)}getFlowerColor(t){switch(t){case"blue":return"var(--color-flower-blue)";case"red":return"var(--color-flower-red)";case"white":return"var(--color-flower-white)";default:return"white"}}hydrate(t){fetch(t).then(e=>e.json()).then(e=>{this.field=e}).catch(e=>console.error("error getting field+mob data:",e))}};G.styles=[h.styles,m.styles,c`
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
@@ -674,7 +713,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     text-align: left;
                 }
             }
-        `];let k=q;K([n({type:String})],k.prototype,"src");K([n({type:Object})],k.prototype,"field");var me=Object.defineProperty,W=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&me(t,e,r),r};const G=class G extends g{constructor(){super(...arguments),this.showGear=!0,this.showTools=!0}render(){return l`
+        `];let k=G;K([n({type:String})],k.prototype,"src");K([n({type:Object})],k.prototype,"field");var me=Object.defineProperty,W=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&me(t,e,r),r};const q=class q extends b{constructor(){super(...arguments),this.showGear=!0,this.showTools=!0}render(){return l`
             <br>
             <br>
             <br>
@@ -770,7 +809,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     </div>
                 </div>
             </div>
-    `}};G.styles=[h.styles,m.styles,x.styles,c`
+    `}};q.styles=[h.styles,m.styles,y.styles,c`
             .carrot {
                 font-size: 0.7em;
             }
@@ -855,7 +894,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
 
             }
         
-    `];let z=G;W([n({type:Boolean})],z.prototype,"showGear");W([n({type:Boolean})],z.prototype,"showTools");const X={};var be=Object.defineProperty,ge=Object.getOwnPropertyDescriptor,f=(o,t,e,s)=>{for(var r=s>1?void 0:s?ge(t,e):t,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=(s?a(t,e,r):a(r))||r);return s&&r&&be(t,e,r),r};const M=class M extends A{constructor(){super("beeswarm:model"),this.showName=!0,this.showNickname=!0,this.showLevel=!0,this.showColor=!0,this.mode="view"}get user(){return this.model.profile}render(){return this.mode==="edit"?this.renderEditor():this.renderView()}renderView(){const{userid:t,nickname:e,level:s,color:r,profilePicture:i}=this.user||{};return l`
+    `];let z=q;W([n({type:Boolean})],z.prototype,"showGear");W([n({type:Boolean})],z.prototype,"showTools");const X={};var ge=Object.defineProperty,be=Object.getOwnPropertyDescriptor,u=(o,t,e,s)=>{for(var r=s>1?void 0:s?be(t,e):t,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=(s?a(t,e,r):a(r))||r);return s&&r&&ge(t,e,r),r};const M=class M extends A{constructor(){super("beeswarm:model"),this.showName=!0,this.showNickname=!0,this.showLevel=!0,this.showColor=!0,this.mode="view"}get user(){return this.model.profile}render(){return this.mode==="edit"?this.renderEditor():this.renderView()}renderView(){const{userid:t,nickname:e,level:s,color:r,profilePicture:i}=this.user||{};return l`
             <div class="body-content">
                 <br>
                 <br>
@@ -950,7 +989,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     </mu-form>
                 </div>
                 <br>
-        `}connectedCallback(){super.connectedCallback(),this.userid&&(console.log("Dispatching select message for:",this.userid),this.dispatchMessage(["profile/select",{userid:this.userid}]),console.log("profile"+this.user))}attributeChangedCallback(t,e,s){super.attributeChangedCallback(t,e,s),t==="userid"&&e!==s&&s&&this.dispatchMessage(["profile/select",{userid:s}])}handleSubmit(t){const e={...this.user,...t.detail};this._profile_pic&&(e.profilePicture=this._profile_pic),this.userid&&this.dispatchMessage(["profile/save",{userid:this.userid,profile:e,onSuccess:()=>this.mode="view",onFailure:s=>{console.log("Error saving profile",s)}}])}handleAvatarSelected(t){t&&t.length&&new Promise((s,r)=>{const i=new FileReader;i.onload=()=>s(i.result),i.onerror=a=>r(a),i.readAsDataURL(t[0])}).then(s=>this._profile_pic=s)}firstUpdated(){this.userid&&this.dispatchMessage(["profile/select",{userid:this.userid}])}};M.uses=P({"mu-form":te.Element}),M.styles=[h.styles,m.styles,c`
+        `}connectedCallback(){super.connectedCallback(),this.userid&&(console.log("Dispatching select message for:",this.userid),this.dispatchMessage(["profile/select",{userid:this.userid}]),console.log("profile"+this.user))}attributeChangedCallback(t,e,s){super.attributeChangedCallback(t,e,s),t==="userid"&&e!==s&&s&&this.dispatchMessage(["profile/select",{userid:s}])}handleSubmit(t){const e={...this.user,...t.detail};this._profile_pic&&(e.profilePicture=this._profile_pic),this.userid&&this.dispatchMessage(["profile/save",{userid:this.userid,profile:e,onSuccess:()=>this.mode="view",onFailure:s=>{console.log("Error saving profile",s)}}])}handleAvatarSelected(t){t&&t.length&&new Promise((s,r)=>{const i=new FileReader;i.onload=()=>s(i.result),i.onerror=a=>r(a),i.readAsDataURL(t[0])}).then(s=>this._profile_pic=s)}firstUpdated(){this.userid&&this.dispatchMessage(["profile/select",{userid:this.userid}])}};M.uses=_({"mu-form":te.Element}),M.styles=[h.styles,m.styles,c`
             dt {
                 font-size: 1.17em;
             }
@@ -970,6 +1009,12 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 padding: 0 1.5em;
                 border: 2px solid var(--color-line);
                 border-radius: 1em;
+
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
             }
 
             .banner {
@@ -1033,7 +1078,7 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             dl, dt {
                 font-family: "mansalva", sans-serif;
             }
-        `];let p=M;f([n({type:Boolean})],p.prototype,"showName",2);f([n({type:Boolean})],p.prototype,"showNickname",2);f([n({type:Boolean})],p.prototype,"showLevel",2);f([n({type:Boolean})],p.prototype,"showColor",2);f([n({attribute:"userid"})],p.prototype,"userid",2);f([y()],p.prototype,"user",1);f([n()],p.prototype,"mode",2);f([y()],p.prototype,"_profile_pic",2);var fe=Object.defineProperty,Y=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&fe(t,e,r),r};const U=class U extends g{connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){var t,e,s,r;return l`
+        `];let p=M;u([n({type:Boolean})],p.prototype,"showName",2);u([n({type:Boolean})],p.prototype,"showNickname",2);u([n({type:Boolean})],p.prototype,"showLevel",2);u([n({type:Boolean})],p.prototype,"showColor",2);u([n({attribute:"userid"})],p.prototype,"userid",2);u([x()],p.prototype,"user",1);u([n()],p.prototype,"mode",2);u([x()],p.prototype,"_profile_pic",2);var ue=Object.defineProperty,Y=(o,t,e,s)=>{for(var r=void 0,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=a(t,e,r)||r);return r&&ue(t,e,r),r};const U=class U extends b{connectedCallback(){super.connectedCallback(),this.src&&this.hydrate(this.src)}render(){var t,e,s,r;return l`
             <br>
             <br>
             <br>
@@ -1115,6 +1160,12 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 & > * .questbox {
                     border: 2px solid var(--color-line);;
                     margin-bottom: 1em;
+
+                    background-color: var(--color-page-bg);
+                    background-image:
+                            radial-gradient(#91862f 1px, transparent 1px),
+                            radial-gradient(#aea76b 1px, transparent 1px);
+                    background-size: 50px 50px;
             }
 
             .card {
@@ -1123,22 +1174,43 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 border-radius: 1em;
             }
             
-        `];let C=U;Y([n({type:String})],C.prototype,"src");Y([n({type:Object})],C.prototype,"bear");var ue=Object.defineProperty,ve=Object.getOwnPropertyDescriptor,Z=(o,t,e,s)=>{for(var r=s>1?void 0:s?ve(t,e):t,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=(s?a(t,e,r):a(r))||r);return s&&r&&ue(t,e,r),r};const N=class N extends A{get user(){return this.model.profile}constructor(){super("beeswarm:model")}render(){const{pollen:t}=this.user||{};return l`
+        `];let C=U;Y([n({type:String})],C.prototype,"src");Y([n({type:Object})],C.prototype,"bear");var fe=Object.defineProperty,ve=Object.getOwnPropertyDescriptor,Z=(o,t,e,s)=>{for(var r=s>1?void 0:s?ve(t,e):t,i=o.length-1,a;i>=0;i--)(a=o[i])&&(r=(s?a(t,e,r):a(r))||r);return s&&r&&fe(t,e,r),r};const N=class N extends A{get user(){return this.model.profile}constructor(){super("beeswarm:model")}render(){const{nickname:t,color:e,profilePicture:s,pollen:r}=this.user||{};return l`
             <br>
             <br>
             <br>
             <div class="body-content-intro-text">
-                <h1 class="page-title">the bee swarm experience</h1>
+                <h1 class="page-title">the bee swarm experience (not!)</h1>
                 <p>welcome to the <s>cookie</s> pollen clicker!</p>
             </div>
             <br>
             <br>
             <hr>
             <div class="body-content">
-                <p>${t}</p>
-                <button @click=${this.handleClick}>Collect Pollen</button>
+                <div class="form-card">
+                    <div class="two-one-grid">
+                        <div>
+                            <p>currently playing...</p>
+                            <h3 style="padding-left: 1.5em;" class="subtitle-text">${t||"none"}</h3>
+                            <img src=${s} class="profpic" style="border: 1em solid ${e}" alt="pp"/>
+                            <br>
+                            <br>
+                        </div>
+                        <div class="col">
+                            <h3 style="padding-left: 1.5em; padding-bottom: 0.25em;" class="title-text">
+                                <svg class="icon">
+                                    <use href="/icons/bee.svg#icon-bee" />
+                                </svg>
+                                pollen count
+                                <svg class="icon">
+                                    <use href="/icons/bee.svg#icon-bee" />
+                                </svg>
+                            </h3>
+                            <h3 style="font-size: 1.5em">- ${r} -</h3>
+                            <button @click=${this.handleClick}>Collect Pollen</button>
+                        </div>
+                    </div>
             </div>
-    `}connectedCallback(){super.connectedCallback(),this.userid&&this.dispatchMessage(["profile/select",{userid:this.userid}])}handleClick(){var t;if(this.userid&&((t=this.user)==null?void 0:t.pollen)!==void 0){const e=this.user.pollen+1;this.dispatchMessage(["pollen/save",{userid:this.userid,newPollen:e}])}}};N.styles=[h.styles,m.styles,x.styles,c`
+    `}connectedCallback(){super.connectedCallback(),this.userid&&this.dispatchMessage(["profile/select",{userid:this.userid}])}handleClick(){var t;if(this.userid&&((t=this.user)==null?void 0:t.pollen)!==void 0){const e=this.user.pollen+1;this.dispatchMessage(["pollen/save",{userid:this.userid,newPollen:e}])}}};N.styles=[h.styles,m.styles,y.styles,c`
             .carrot {
                 font-size: 0.7em;
             }
@@ -1154,22 +1226,66 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             }
 
             .title-text {
-                background-color: var(--color-tertiary);
+                background-color: var(--color-primary);
                 text-align: center;
                 font-size: var(--font-size-medium);
                 padding: 0.5em 0.5em 0.5em 0.5em;
             }
 
             .subtitle-text {
-                background-color: var(--color-quaternary);
+                background-color: var(--color-primary);
                 text-align: right;
                 font-size: var(--font-size-medium);
                 padding: 0.15em 0.5em 0.15em 0.5em;
 
             }
-            
+
+            button {
+                font-family: "Mansalva", sans-serif;
+                font-size: 1.15em;
+                border: none;
+                padding: 0.5em 1em;
+                background-color: var(--color-primary);
+                border-radius: 30%;
+                color: var(--color-text);
+            }
+
+            .form-card {
+                padding: 1em 1.5em;
+                border: 2px solid var(--color-line);
+                border-radius: 1em;
+
+                background-color: var(--color-page-bg);
+                background-image:
+                        radial-gradient(#91862f 1px, transparent 1px),
+                        radial-gradient(#aea76b 1px, transparent 1px);
+                background-size: 50px 50px;
+            }
+
+            .two-one-grid {
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                width: 100%;
+                gap: var(--box-gap);
+
+                @media screen and (max-width: 70rem) {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .col {
+                text-align: center;
+                padding: 7.9em 5em;
+            }
+
+            .profpic {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
         
-    `];let _=N;Z([n({attribute:"userid"})],_.prototype,"userid",2);Z([y()],_.prototype,"user",1);function ye(o,t,e){switch(o[0]){case"profile/save":we(o[1],e).then(r=>t(i=>({...i,profile:r}))).then(()=>{const{onSuccess:r}=o[1];r&&r()}).catch(r=>{const{onFailure:i}=o[1];i&&i(r)});break;case"profile/select":$e(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;case"pollen/save":xe(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;default:const s=o[0];throw new Error(`Unhandled message "${s}"`)}}function xe(o,t){return fetch(`/api/users/pollen/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify({pollen:o.newPollen})}).then(e=>{if(e.status===200)return e.json();throw new Error(`failed to update pollen for ${o.userid}`)}).then(e=>e)}function we(o,t){return fetch(`/api/users/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify(o.profile)}).then(e=>{if(e.status===200)return e.json();throw new Error(`Failed to save profile for ${o.userid}`)}).then(e=>{if(e)return e})}function $e(o,t){return fetch(`/api/users/${o.userid}`,{headers:S.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Profile:",e),e})}const ke=[{path:"/app/field/:name",view:o=>l`
+    `];let P=N;Z([n({attribute:"userid"})],P.prototype,"userid",2);Z([x()],P.prototype,"user",1);function xe(o,t,e){switch(o[0]){case"profile/save":we(o[1],e).then(r=>t(i=>({...i,profile:r}))).then(()=>{const{onSuccess:r}=o[1];r&&r()}).catch(r=>{const{onFailure:i}=o[1];i&&i(r)});break;case"profile/select":$e(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;case"pollen/save":ye(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;default:const s=o[0];throw new Error(`Unhandled message "${s}"`)}}function ye(o,t){return fetch(`/api/users/pollen/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify({pollen:o.newPollen})}).then(e=>{if(e.status===200)return e.json();throw new Error(`failed to update pollen for ${o.userid}`)}).then(e=>e)}function we(o,t){return fetch(`/api/users/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify(o.profile)}).then(e=>{if(e.status===200)return e.json();throw new Error(`Failed to save profile for ${o.userid}`)}).then(e=>{if(e)return e})}function $e(o,t){return fetch(`/api/users/${o.userid}`,{headers:S.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Profile:",e),e})}const ke=[{path:"/app/field/:name",view:o=>l`
             <field-view src="/api/fields/${o.name}"></field-view>
         `},{path:"/app/bear/:name",view:o=>l`
             <bear-view src="/api/bears/${o.name}"></bear-view>
@@ -1187,4 +1303,4 @@ import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             <egg-view></egg-view>
         `},{path:"/app",view:()=>l`
             <home-view></home-view>
-        `},{path:"/",redirect:"/app"}];P({"mu-auth":S.Provider,"mu-history":re.Provider,"mu-store":class extends ie.Provider{constructor(){super(ye,X,"beeswarm:auth")}},"navbar-element":u,"home-view":w,"egg-view":j,"bee-view":R,"field-view":k,"bear-view":C,"noob-shop-view":z,"profile-view":p,"pollen-view":_,"mu-switch":class extends se.Element{constructor(){super(ke,"beeswarm:history","beeswarm:auth")}}});u.initializeOnce();
+        `},{path:"/",redirect:"/app"}];_({"mu-auth":S.Provider,"mu-history":re.Provider,"mu-store":class extends ie.Provider{constructor(){super(xe,X,"beeswarm:auth")}},"navbar-element":f,"home-view":w,"egg-view":j,"bee-view":R,"field-view":k,"bear-view":C,"noob-shop-view":z,"profile-view":p,"pollen-view":P,"mu-switch":class extends se.Element{constructor(){super(ke,"beeswarm:history","beeswarm:auth")}}});f.initializeOnce();
