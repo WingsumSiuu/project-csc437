@@ -98,7 +98,7 @@ export class BeeContainerElement extends LitElement {
                 display: flex;
                 align-items: center;
                 gap: 20px;
-                border: var(--box-border-width) solid var(--box-border-color);
+                border: var(--box-border-width) solid var(--color-line);
                 padding: 20px 25px;
 
                 > img {

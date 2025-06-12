@@ -28,10 +28,12 @@
     <body>
         <mu-history provides="beeswarm:history">
             <mu-auth provides="beeswarm:auth" redirect="/login.html">
-                <article class="page">
-                    <navbar-element></navbar-element>
-                    <mu-switch></mu-switch>
-                </article>
+                <mu-store provides="beeswarm:model">
+                    <article class="page">
+                        <navbar-element></navbar-element>
+                        <mu-switch></mu-switch>
+                    </article>
+                </mu-store>
             </mu-auth>
         </mu-history>
     </body>

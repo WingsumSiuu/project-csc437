@@ -156,10 +156,6 @@ export class HomeView extends LitElement {
 
                 background: var(--color-seven);
 
-                > .indent {
-                    padding-left: 5em;
-                }
-
             }
             
             .header-text {

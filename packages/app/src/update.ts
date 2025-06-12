@@ -30,11 +30,42 @@ export default function update(
                 }
             );
             break;
+        case "pollen/save":
+            saveNewPollen(message[1], user).then((profile) => {
+                console.log("applying profile to model:", profile);
+                apply((model) => ({ ...model, profile }));
+                }
+            );
+            break;
         default:
             const unhandled: never = message[0];
             throw new Error(`Unhandled message "${unhandled}"`);
     }
 }
+
+
+function saveNewPollen(
+    msg: {
+        userid: string;
+        newPollen: number;
+    },
+    user: Auth.User
+): Promise<User> {
+    return fetch(`/api/users/pollen/${msg.userid}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            ...Auth.headers(user),
+        },
+        body: JSON.stringify({ pollen: msg.newPollen })  // just the pollen
+    })
+        .then((response) => {
+            if (response.status === 200) return response.json();
+            throw new Error(`failed to update pollen for ${msg.userid}`);
+        })
+        .then((json) => json as User);
+}
+
 
 function saveProfile(
     msg: {
@@ -64,6 +95,7 @@ function saveProfile(
         });
 }
 
+
 function selectProfile(
     msg: { userid: string },
     user: Auth.User
@@ -73,10 +105,8 @@ function selectProfile(
     })
         .then((response: Response) => {
             if (response.status === 200) {
-                console.log("got it");
                 return response.json();
             }
-            console.log("no it");
             return undefined;
         })
         .then((json: unknown) => {

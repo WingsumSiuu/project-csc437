@@ -8,5 +8,10 @@ export type Msg =
         profile: User;
         onSuccess?: () => void;
         onFailure?: (err: Error) => void;
-    }
-];
+    }]
+    | [ "pollen/save",
+    {
+        userid: string;
+        newPollen: number;
+    }]
+;

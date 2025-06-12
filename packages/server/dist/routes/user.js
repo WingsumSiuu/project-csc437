@@ -39,16 +39,12 @@ router.get("/", (_, res) => {
 });
 router.get("/:userid", (req, res) => {
   const { userid } = req.params;
-  import_user_svc.default.get(userid).then((user) => {
-    if (!user) {
-      res.status(404).send(`no user with id ${userid}`);
-    } else {
-      res.json(user);
-    }
-  }).catch((err) => {
-    console.error(err);
-    res.status(500).send("Server error");
-  });
+  import_user_svc.default.get(userid).then((profile) => res.json(profile)).catch((err) => res.status(404).send(err));
+});
+router.put("/pollen/:userid", (req, res) => {
+  const { userid } = req.params;
+  const { pollen } = req.body;
+  import_user_svc.default.updatePollen(userid, pollen).then((user) => res.json(user)).catch((err) => res.status(404).send(err));
 });
 router.put("/:userid", (req, res) => {
   const { userid } = req.params;

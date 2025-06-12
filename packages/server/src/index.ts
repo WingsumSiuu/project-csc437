@@ -34,7 +34,7 @@ app.use("/api/fields", fields);
 app.use("/api/eggs", eggs);
 app.use("/api/bees", bees);
 app.use("/api/bears", bears);
-app.use("/api/users", authenticateUser, users);
+app.use("/api/users", users);
 
 // image routes
 app.post("/images", saveFile);

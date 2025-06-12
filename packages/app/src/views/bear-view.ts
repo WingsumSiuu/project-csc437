@@ -31,6 +31,7 @@ export class BearView extends LitElement {
                             <p>${this.bear?.desc}</p>
                         </div>
                         <br>
+                        <br>
                         <img src="${this.bear?.image}" alt="bear" />
                     </div>
                     <div class="info">

@@ -4,11 +4,11 @@ import { User } from "../models/user";
 const UserSchema = new Schema<User>(
     {
         userid: { type: String, required: true, trim: true },
-        name: { type: String, required: true, trim: true },
         nickname: { type: String, trim: true },
         level: Number,
         color: String,
         profilePicture: String,
+        pollen: Number
     },
     { collection: "user_profiles" }
 );
@@ -51,6 +51,18 @@ function update(
         });
 }
 
+function updatePollen(userid: string, newpollen: number): Promise<User> {
+    return UserModel.findOneAndUpdate(
+        { userid },
+        { $set: { pollen: newpollen } },
+        { new: true }
+    )
+    .then((updated) => {
+        if (!updated) throw `${userid}'s pollen not updated`;
+        else return updated as User;
+    });
+}
+
 function create(profile: User): Promise<User> {
     const p = new UserModel(profile);
     return p.save();
@@ -64,4 +76,4 @@ function remove(userid: String): Promise<void> {
     );
 }
 
-export default { index, get, update, create, remove };
+export default { index, get, update, updatePollen, create, remove };

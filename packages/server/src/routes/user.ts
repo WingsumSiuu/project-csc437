@@ -6,7 +6,8 @@ import Users from "../services/user-svc";
 const router = express.Router();
 
 router.get("/", (_, res: Response) => {
-    Users.index()
+    Users.
+        index()
         .then((list: User[]) => res.json(list))
         .catch((err) => res.status(500).send(err));
 });
@@ -14,23 +15,22 @@ router.get("/", (_, res: Response) => {
 router.get("/:userid", (req: Request, res: Response) => {
     const { userid } = req.params;
 
-    Users.get(userid).then((user: User | undefined) => {
-        if (!user) {
-            res.status(404).send(`no user with id ${userid}`);
-        } else {
-            res.json(user);
-        }
-    }).catch((err) => {
-        console.error(err);
-        res.status(500).send("Server error");
-    });
+    Users
+        .get(userid)
+        .then((profile: User) => res.json(profile))
+        .catch((err) => res.status(404).send(err));
 });
 
+router.put("/pollen/:userid", (req: Request, res: Response) => {
+    const { userid } = req.params;
+    const { pollen } = req.body;
 
-//     Users.get(userid)
-//         .then((user: User) => res.json(user))
-//         .catch((err) => res.status(404).send(err));
-// });
+    Users
+        .updatePollen(userid, pollen)
+        .then((user: User) => res.json(user))
+        .catch((err) => res.status(404).send(err));
+});
+
 
 router.put("/:userid", (req: Request, res: Response) => {
     const { userid } = req.params;

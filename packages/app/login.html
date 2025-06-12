@@ -18,43 +18,89 @@
         });
     </script>
     <style>
-        h2, p {
-            grid-column: 2 / -2;
-            text-align: center;
+        body {
+            background-color: #fffef8;
+            background-image:
+                    radial-gradient(#91862f 1px, transparent 1px),
+                    radial-gradient(#aea76b 1px, transparent 1px);
+            background-size: 50px 50px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        h2, p, label, input {
+        .box {
+            max-width: 500px;
+            margin: 5em auto;
+            padding: 2.5em 3em;
+            border: 2px solid var(--color-line);
+            border-radius: 1em;
+            background: rgba(246, 246, 155, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, p, label, input, h3 {
             font-family: "Mansalva", sans-serif;
         }
 
         input {
-            width: 450px;
+            width: 100%;
         }
 
-        login-form {
-            padding: 1.5em;
+        .main-title {
+            font-size: 2rem;
+            text-align: center;
+            text-shadow: .2em .1em var(--color-text-shadow);
         }
+
+        .button {
+            font-family: "Mansalva", sans-serif;
+            font-size: 1.25em;
+        }
+
+        svg.icon {
+            height: 2em;
+            width: 2em;
+            display: inline;
+            vertical-align: text-top;
+            fill: var(--color-text);
+        }
+
     </style>
 </head>
 <body>
     <mu-auth>
-        <h2>welcome back, beekeeper</h2>
-        <login-form api="/auth/login">
-            <label>
-                <span>Username:</span>
-                <input name="username" autocomplete="off" />
-            </label>
-            <br>
-            <label>
-                <span>Password:</span>
-                <input type="password" name="password" />
-            </label>
-            <br>
-        </login-form>
-        <p
-        >Or did you want to
-            <a href="new-user.html">Sign up as a new user</a>?
-        </p>
+        <div class="box">
+            <h2 class="main-title">welcome back, beekeeper
+                <svg class="icon">
+                    <use href="/icons/bee.svg#icon-bee" />
+                </svg>
+            </h2>
+            <hr>
+            <login-form api="/auth/login">
+                <label>
+                    <span>user id:</span>
+                    <input name="username" autocomplete="off" />
+                </label>
+                <br>
+                <label>
+                    <span>password:</span>
+                    <input type="password" name="password" />
+                </label>
+                <br>
+                <span slot="button-label" class="button">log in</span>
+                <br />
+            </login-form>
+            <p>
+                Or did you want to
+                <a href="new-user.html">Sign up as a new user</a>?
+            </p>
+            <p>
+                Or-or did you want to
+                <a href="/app">View as guest</a>?
+            </p>
+        </div>
     </mu-auth>
 </body>
 </html>

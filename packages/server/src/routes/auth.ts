@@ -46,11 +46,11 @@ router.post("/register", (req: Request, res: Response) => {
 
                 return Users.create({
                     userid: creds.username,
-                    name: creds.username,
-                    nickname: "beekeeper ign",
+                    nickname: creds.username,
                     level: 0,
                     color: "#ffff00",
-                    profilePicture: "/images/bees/basicbee.webp"
+                    profilePicture: "/images/bees/basicbee.webp",
+                    pollen: 0,
                 }).then(() => creds);
             })
             .then((creds) => generateAccessToken(creds.username))

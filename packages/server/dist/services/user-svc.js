@@ -25,11 +25,11 @@ var import_mongoose = require("mongoose");
 const UserSchema = new import_mongoose.Schema(
   {
     userid: { type: String, required: true, trim: true },
-    name: { type: String, required: true, trim: true },
     nickname: { type: String, trim: true },
     level: Number,
     color: String,
-    profilePicture: String
+    profilePicture: String,
+    pollen: Number
   },
   { collection: "user_profiles" }
 );
@@ -61,6 +61,16 @@ function update(userid, profile) {
     else return updated;
   });
 }
+function updatePollen(userid, newpollen) {
+  return UserModel.findOneAndUpdate(
+    { userid },
+    { $set: { pollen: newpollen } },
+    { new: true }
+  ).then((updated) => {
+    if (!updated) throw `${userid}'s pollen not updated`;
+    else return updated;
+  });
+}
 function create(profile) {
   const p = new UserModel(profile);
   return p.save();
@@ -72,4 +82,4 @@ function remove(userid) {
     }
   );
 }
-var user_svc_default = { index, get, update, create, remove };
+var user_svc_default = { index, get, update, updatePollen, create, remove };

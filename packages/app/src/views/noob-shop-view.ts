@@ -153,6 +153,7 @@ export class NoobShopView extends LitElement {
                     grid-template-columns: 1fr;
                 }
             }
+            
             .shop-box {   
                 display: flex;
                 align-items: center;

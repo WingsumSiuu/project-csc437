@@ -10,6 +10,7 @@ import { FieldView } from "./views/field-view";
 import { NoobShopView } from "./views/noob-shop-view";
 import { ProfileViewElement } from "./views/profile-view";
 import { BearView } from "./views/bear-view";
+import { PollenView } from "./views/pollen-view";
 import { init, Model } from "./model";
 import { Msg } from "./messages";
 import update from "./update";
@@ -36,11 +37,10 @@ const routes: Switch.Route[] = [
     },
     {
         auth: "protected",
-        path: "/app/profile/:userid/edit",
+        path: "/app/pollen/:userid",
         view: (params: Switch.Params) => html`
-      <profile-view userid=${params.userid} mode="edit">
-      </profile-view>
-    `
+              <pollen-view userid=${params.userid}> </pollen-view>
+        `
     },
     {
         path: "/app/npcs/:name",
@@ -94,6 +94,7 @@ define({
     "bear-view": BearView,
     "noob-shop-view": NoobShopView,
     "profile-view": ProfileViewElement,
+    "pollen-view": PollenView,
     "mu-switch": class AppSwitch extends Switch.Element {
         constructor() {
             super(routes, "beeswarm:history", "beeswarm:auth");

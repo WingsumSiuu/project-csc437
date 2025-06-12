@@ -1,11 +1,13 @@
 import {
-    Auth, define, Dropdown, Events, Observer
+    Auth, define, Dropdown, Events, Observer, View
 } from "@calpoly/mustang";
-import { css, html, LitElement} from "lit";
+import { css, html } from "lit";
 import { state } from "lit/decorators.js";
 import headings from "../styles/headings.css";
 import reset from "../styles/reset.css";
 import icon from "../styles/icon.css";
+import { Model } from "../model.ts";
+import { Msg } from "../messages.ts";
 
 function toggleDarkMode(ev: InputEvent) {
     const target = ev.target as HTMLInputElement;
@@ -14,11 +16,7 @@ function toggleDarkMode(ev: InputEvent) {
     Events.relay(ev, "dark-mode", { checked });
 }
 
-function signOut(ev: MouseEvent) {
-    Events.relay(ev, "auth:message", ["auth/signout"]);
-}
-
-export class NavbarElement extends LitElement {
+export class NavbarElement extends View<Model, Msg> {
     static uses = define({
         "mu-dropdown": Dropdown.Element
     });
@@ -29,42 +27,67 @@ export class NavbarElement extends LitElement {
     @state()
     userid?: string;
 
-    // constructor() {
-    //     super("beeswarm:model");
-    // }
+    @state()
+    get profile() {
+        console.log("hello " + this.userid + " " + this.model.profile);
+
+        return this.model.profile;
+    }
+
+    constructor() {
+        super("beeswarm:model");
+    }
 
     protected render() {
-
-        //console.log("Rendering header element", this.userid, this.profile);
+        //const name = this.profile?.nickname || "beekeeper";
+        const profilePicture = this.profile?.profilePicture || "/images/bees/basicbee.webp";
+        const color = this.profile?.color || "#cccccc";
 
         return html`
              <header>
                 <div class="navbar">
                     <div class="logo-flex">
-                        <h1 @click=${() => (window.location.href = "/")}>
+                        <h1>
                             <svg class="icon">
                                 <use href="/icons/bee.svg#icon-bee" />
                             </svg>
                             bee swarm simulator
                         </h1>
                     </div>
+
+                    <nav class="links">
+                        <a href="/app">home</a>
+                        <a href="/app/eggs">eggs</a>
+                        <a href="/app/bees">bees</a>
+                    </nav>
                     
                     <div class="right-flex">
                         <mu-dropdown>
-                            <a slot="actuator">
-                                Hello, ${this.userid || "beekeeper"}
-                            </a>
+                            <img
+                                    slot="actuator"
+                                    src=${profilePicture}
+                                    alt="Profile Picture"
+                                    class="pic"
+                                    style="border: 3px solid ${color}"
+                            />
                             <menu>
+                                <li>
+                                    Hello, ${this.userid}
+                                </li>
                                 <li>
                                     <a href="/app/profile/${this.userid}">
                                         Profile
                                     </a>
                                 </li>
-                                <li class="when-signed-in">
-                                    <a id="signout" @click=${signOut}>Sign Out</a>
+                                <li>
+                                    <a href="/app/pollen/${this.userid}">
+                                        My Pollen
+                                    </a>
                                 </li>
-                                <li class="when-signed-out">
-                                    <a @click=${() => location.assign("/login.html")}>Sign In</a>
+                                <li>
+                                    ${this.loggedIn
+                                            ? this.renderSignOutButton()
+                                            : this.renderSignInButton()}
                                 </li>
                                 <li>
                                     <label @change=${toggleDarkMode}>
@@ -88,41 +111,54 @@ export class NavbarElement extends LitElement {
         icon.styles,
         css`
             .navbar {
-                display: flex;
                 justify-content: space-between;
-                
+
+                align-items: center;
+                display: flex;
+
                 background-color: var(--color-primary);
                 width: 100%;
-                height: 4em;
-                margin-top: -0.5em;
                 
+                height: 4em;
+
                 > .logo-flex {
                     padding-left: 1em;
                     font-size: 0.8em;
+                    padding-top: 0.8em;
                 }
-                
+
                 > .right-flex {
                     padding-right: 1em;
-                    display: flex;
-                    align-items: flex-end;
                     font-size: 1.2em;
-                    
                     li {
                         font-size: 0.8em;
                     }
-                    
-                }
-                
-                nav.logged-out .when-signed-in,
-                nav.logged-in .when-signed-out {
-                    display: none;
                 }
                 
             }
+            
+            .pic {
+                width: 2em;
+                height: 2em;
+                border-radius: 50%;
+                object-fit: cover;
+                border: 2px solid var(--color-line);
+            }
+            
+            button {
+                font-family: "Mansalva", sans-serif;
+                background: none;
+                border: none;
+                margin-top: 1em;
+            }
 
-    
+            .links {
+                display: flex;
+                gap: 1.5rem;
+            }
         `
     ];
+
 
     _authObserver = new Observer<Auth.Model>(
         this,
@@ -137,7 +173,8 @@ export class NavbarElement extends LitElement {
                 this.loggedIn = true;
                 this.userid = user.username;
 
-                //this.dispatchMessage(["profile/select", {userid: this.userid}]);
+                console.log("hello " + this.userid);
+                this.dispatchMessage(["profile/select", {userid: this.userid}]);
             } else {
                 this.loggedIn = false;
                 this.userid = undefined;
@@ -159,6 +196,28 @@ export class NavbarElement extends LitElement {
                 (event as CustomEvent).detail?.checked
             )
         );
+    }
+
+    renderSignOutButton() {
+        return html`
+            <button
+                    @click=${(e: UIEvent) => {
+            Events.relay(e, "auth:message", ["auth/signout"]);
+        }}
+            >
+                Sign Out
+            </button>
+        `;
+    }
+
+    renderSignInButton() {
+        return html`
+            <button @click=${() => {
+            window.location.href = "/login.html";
+        }}>
+                Sign In
+            </button>
+        `;
     }
 
 }

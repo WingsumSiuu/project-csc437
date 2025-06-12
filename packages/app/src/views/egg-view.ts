@@ -25,7 +25,7 @@ export class EggView extends LitElement {
             <br>
             <hr />
             <div class="body-content">
-                <h3 class="title-text">Eggs</h3>
+                <h3 class="title-text">eggs</h3>
                 <egg-container></egg-container>
             </div>
             `;
