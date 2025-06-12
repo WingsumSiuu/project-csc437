@@ -1,5 +1,7 @@
 # CSC 437
 
+https://wsiu01.csse.dev/
+
 Some details
 
 - The shop view is hard coded (largely the original HTML I had from the earlier labs). User, field, bees, eggs, and bears are stored in their respective Collections.
