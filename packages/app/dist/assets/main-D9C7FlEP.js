@@ -1,4 +1,4 @@
-import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c as g,n,f as te,g as S,j as re,_ as se,s as ie}from"./reset.css-DRchHByS.js";const oe=c`
+import{i as c,V as A,O as V,d as P,a as ee,x as l,r as h,h as m,e as H,b as y,c as g,n,f as te,g as S,j as re,_ as se,s as ie}from"./reset.css-DRchHByS.js";const oe=c`
     svg.icon {
         height: 2em;
         width: 2em;
@@ -34,18 +34,16 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                             />
                             <menu>
                                 <li>
-                                    Hello, ${this.userid}
+                                    Hello, ${this.userid||"beekeeper"}
                                 </li>
-                                <li>
-                                    <a href="/app/profile/${this.userid}">
-                                        Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/app/pollen/${this.userid}">
-                                        My Pollen
-                                    </a>
-                                </li>
+                                ${this.loggedIn?l`
+                                    <li>
+                                        <a href="/app/profile/${this.userid}">my profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="/app/pollen/${this.userid}"> my pollen </a>
+                                    </li>
+                                `:""}
                                 <li>
                                     ${this.loggedIn?this.renderSignOutButton():this.renderSignInButton()}
                                 </li>
@@ -72,7 +70,7 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             <button @click=${()=>{window.location.href="/login.html"}}>
                 Sign In
             </button>
-        `}};O.uses=_({"mu-dropdown":ee.Element}),O.styles=[h.styles,m.styles,x.styles,c`
+        `}};O.uses=P({"mu-dropdown":ee.Element}),O.styles=[h.styles,m.styles,x.styles,c`
             .navbar {
                 justify-content: space-between;
 
@@ -386,7 +384,7 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                 <h3 class="title-text">eggs</h3>
                 <egg-container></egg-container>
             </div>
-            `}};B.uses=_({"egg-container":$}),B.styles=[h.styles,m.styles,x.styles,c`
+            `}};B.uses=P({"egg-container":$}),B.styles=[h.styles,m.styles,x.styles,c`
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
@@ -526,7 +524,7 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             <div class="body-content">
                 <bee-container></bee-container>
             </div>
-        `}};D.uses=_({"bee-container":d}),D.styles=[h.styles,m.styles,x.styles,c`
+        `}};D.uses=P({"bee-container":d}),D.styles=[h.styles,m.styles,x.styles,c`
             .body-content-intro-text {
                 text-align: center;
                 padding-bottom: 1em;
@@ -952,7 +950,7 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
                     </mu-form>
                 </div>
                 <br>
-        `}connectedCallback(){super.connectedCallback(),this.userid&&(console.log("Dispatching select message for:",this.userid),this.dispatchMessage(["profile/select",{userid:this.userid}]),console.log("profile"+this.user))}attributeChangedCallback(t,e,s){super.attributeChangedCallback(t,e,s),t==="userid"&&e!==s&&s&&this.dispatchMessage(["profile/select",{userid:s}])}handleSubmit(t){const e={...this.user,...t.detail};this._profile_pic&&(e.profilePicture=this._profile_pic),this.userid&&this.dispatchMessage(["profile/save",{userid:this.userid,profile:e,onSuccess:()=>this.mode="view",onFailure:s=>{console.log("Error saving profile",s)}}])}handleAvatarSelected(t){t&&t.length&&new Promise((s,r)=>{const i=new FileReader;i.onload=()=>s(i.result),i.onerror=a=>r(a),i.readAsDataURL(t[0])}).then(s=>this._profile_pic=s)}firstUpdated(){this.userid&&this.dispatchMessage(["profile/select",{userid:this.userid}])}};M.uses=_({"mu-form":te.Element}),M.styles=[h.styles,m.styles,c`
+        `}connectedCallback(){super.connectedCallback(),this.userid&&(console.log("Dispatching select message for:",this.userid),this.dispatchMessage(["profile/select",{userid:this.userid}]),console.log("profile"+this.user))}attributeChangedCallback(t,e,s){super.attributeChangedCallback(t,e,s),t==="userid"&&e!==s&&s&&this.dispatchMessage(["profile/select",{userid:s}])}handleSubmit(t){const e={...this.user,...t.detail};this._profile_pic&&(e.profilePicture=this._profile_pic),this.userid&&this.dispatchMessage(["profile/save",{userid:this.userid,profile:e,onSuccess:()=>this.mode="view",onFailure:s=>{console.log("Error saving profile",s)}}])}handleAvatarSelected(t){t&&t.length&&new Promise((s,r)=>{const i=new FileReader;i.onload=()=>s(i.result),i.onerror=a=>r(a),i.readAsDataURL(t[0])}).then(s=>this._profile_pic=s)}firstUpdated(){this.userid&&this.dispatchMessage(["profile/select",{userid:this.userid}])}};M.uses=P({"mu-form":te.Element}),M.styles=[h.styles,m.styles,c`
             dt {
                 font-size: 1.17em;
             }
@@ -1171,7 +1169,7 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             }
             
         
-    `];let P=N;Z([n({attribute:"userid"})],P.prototype,"userid",2);Z([y()],P.prototype,"user",1);function ye(o,t,e){switch(o[0]){case"profile/save":we(o[1],e).then(r=>t(i=>({...i,profile:r}))).then(()=>{const{onSuccess:r}=o[1];r&&r()}).catch(r=>{const{onFailure:i}=o[1];i&&i(r)});break;case"profile/select":$e(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;case"pollen/save":xe(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;default:const s=o[0];throw new Error(`Unhandled message "${s}"`)}}function xe(o,t){return fetch(`/api/users/pollen/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify({pollen:o.newPollen})}).then(e=>{if(e.status===200)return e.json();throw new Error(`failed to update pollen for ${o.userid}`)}).then(e=>e)}function we(o,t){return fetch(`/api/users/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify(o.profile)}).then(e=>{if(e.status===200)return e.json();throw new Error(`Failed to save profile for ${o.userid}`)}).then(e=>{if(e)return e})}function $e(o,t){return fetch(`/api/users/${o.userid}`,{headers:S.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Profile:",e),e})}const ke=[{path:"/app/field/:name",view:o=>l`
+    `];let _=N;Z([n({attribute:"userid"})],_.prototype,"userid",2);Z([y()],_.prototype,"user",1);function ye(o,t,e){switch(o[0]){case"profile/save":we(o[1],e).then(r=>t(i=>({...i,profile:r}))).then(()=>{const{onSuccess:r}=o[1];r&&r()}).catch(r=>{const{onFailure:i}=o[1];i&&i(r)});break;case"profile/select":$e(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;case"pollen/save":xe(o[1],e).then(r=>{console.log("applying profile to model:",r),t(i=>({...i,profile:r}))});break;default:const s=o[0];throw new Error(`Unhandled message "${s}"`)}}function xe(o,t){return fetch(`/api/users/pollen/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify({pollen:o.newPollen})}).then(e=>{if(e.status===200)return e.json();throw new Error(`failed to update pollen for ${o.userid}`)}).then(e=>e)}function we(o,t){return fetch(`/api/users/${o.userid}`,{method:"PUT",headers:{"Content-Type":"application/json",...S.headers(t)},body:JSON.stringify(o.profile)}).then(e=>{if(e.status===200)return e.json();throw new Error(`Failed to save profile for ${o.userid}`)}).then(e=>{if(e)return e})}function $e(o,t){return fetch(`/api/users/${o.userid}`,{headers:S.headers(t)}).then(e=>{if(e.status===200)return e.json()}).then(e=>{if(e)return console.log("Profile:",e),e})}const ke=[{path:"/app/field/:name",view:o=>l`
             <field-view src="/api/fields/${o.name}"></field-view>
         `},{path:"/app/bear/:name",view:o=>l`
             <bear-view src="/api/bears/${o.name}"></bear-view>
@@ -1189,4 +1187,4 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as y,c 
             <egg-view></egg-view>
         `},{path:"/app",view:()=>l`
             <home-view></home-view>
-        `},{path:"/",redirect:"/app"}];_({"mu-auth":S.Provider,"mu-history":re.Provider,"mu-store":class extends ie.Provider{constructor(){super(ye,X,"beeswarm:auth")}},"navbar-element":u,"home-view":w,"egg-view":j,"bee-view":R,"field-view":k,"bear-view":C,"noob-shop-view":z,"profile-view":p,"pollen-view":P,"mu-switch":class extends se.Element{constructor(){super(ke,"beeswarm:history","beeswarm:auth")}}});u.initializeOnce();
+        `},{path:"/",redirect:"/app"}];P({"mu-auth":S.Provider,"mu-history":re.Provider,"mu-store":class extends ie.Provider{constructor(){super(ye,X,"beeswarm:auth")}},"navbar-element":u,"home-view":w,"egg-view":j,"bee-view":R,"field-view":k,"bear-view":C,"noob-shop-view":z,"profile-view":p,"pollen-view":_,"mu-switch":class extends se.Element{constructor(){super(ke,"beeswarm:history","beeswarm:auth")}}});u.initializeOnce();

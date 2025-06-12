@@ -72,18 +72,16 @@ export class NavbarElement extends View<Model, Msg> {
                             />
                             <menu>
                                 <li>
-                                    Hello, ${this.userid}
+                                    Hello, ${this.userid || "beekeeper"}
                                 </li>
-                                <li>
-                                    <a href="/app/profile/${this.userid}">
-                                        Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/app/pollen/${this.userid}">
-                                        My Pollen
-                                    </a>
-                                </li>
+                                ${this.loggedIn ? html`
+                                    <li>
+                                        <a href="/app/profile/${this.userid}">my profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="/app/pollen/${this.userid}"> my pollen </a>
+                                    </li>
+                                ` : ''}
                                 <li>
                                     ${this.loggedIn
                                             ? this.renderSignOutButton()
