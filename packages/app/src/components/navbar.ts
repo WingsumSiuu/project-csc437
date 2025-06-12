@@ -61,6 +61,7 @@ export class NavbarElement extends View<Model, Msg> {
                         <a href="/app/bees">bees</a>
                         ${this.loggedIn ? html`
                             <a href="/app/pollen/${this.userid}"> my pollen </a>
+                            <a href="/app/profile/${this.userid}">my profile</a>
                         ` : ''}
                     </nav>
                     

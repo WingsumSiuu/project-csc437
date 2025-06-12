@@ -23,6 +23,7 @@ import{i as c,V as A,O as V,d as _,a as ee,x as l,r as h,h as m,e as H,b as x,c 
                         <a href="/app/bees">bees</a>
                         ${this.loggedIn?l`
                             <a href="/app/pollen/${this.userid}"> my pollen </a>
+                            <a href="/app/profile/${this.userid}">my profile</a>
                         `:""}
                     </nav>
                     
